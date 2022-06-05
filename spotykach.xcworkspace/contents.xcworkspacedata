@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:core/spotykach_core.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:vst/build/spotykach_vst.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:au/spotykach_au.xcodeproj">
+   </FileRef>
+</Workspace>

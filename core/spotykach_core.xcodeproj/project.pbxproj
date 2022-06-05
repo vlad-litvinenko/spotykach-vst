@@ -1,0 +1,570 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		540EC1DD27F4E94200D799D4 /* Engine.h in Headers */ = {isa = PBXBuildFile; fileRef = 540EC1DC27F4E94200D799D4 /* Engine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5421099927CBC227009858C7 /* Parameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 5421099827CBC227009858C7 /* Parameters.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54362FA927F86C96009D123C /* Engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54362FA827F86C96009D123C /* Engine.cpp */; };
+		543A7ECF2832D4510067A9D1 /* SourceTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 543A7ECE2832D4510067A9D1 /* SourceTest.cpp */; };
+		544FF2D427E2488F0040BF1A /* TriggerTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 544FF2D327E2488F0040BF1A /* TriggerTest.cpp */; };
+		545C956028341A7200D24A2B /* SliceBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545C955F28341A7200D24A2B /* SliceBuffer.cpp */; };
+		545C956128342A2E00D24A2B /* ISliceBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 545C955D283418EC00D24A2B /* ISliceBuffer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		545CCA7027E239BD0070EAEA /* libspotykach_core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C8B7F527C2396A000D1412 /* libspotykach_core.a */; };
+		545CCA7427E23A640070EAEA /* IGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 549959CC27E1D692002A6914 /* IGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		545CCA7527E23A6C0070EAEA /* ISource.h in Headers */ = {isa = PBXBuildFile; fileRef = 54CC9E1127DFD4AF00588FC9 /* ISource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		545CCA7627E23A6F0070EAEA /* ITrigger.h in Headers */ = {isa = PBXBuildFile; fileRef = 549959CD27E1D7B1002A6914 /* ITrigger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54639395283434FC00EA0196 /* GeneratorTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54639394283434FC00EA0196 /* GeneratorTest.cpp */; };
+		549959E527E1E96C002A6914 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 549959E427E1E96C002A6914 /* main.cpp */; };
+		54A95883283A62E0009515FD /* Spotykach.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54A95882283A62E0009515FD /* Spotykach.cpp */; };
+		54A95884283A716C009515FD /* Spotykach.h in Headers */ = {isa = PBXBuildFile; fileRef = 54A95881283A5AB9009515FD /* Spotykach.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54C4774827E2182E0010FD89 /* libgmock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C4774627E218210010FD89 /* libgmock.a */; };
+		54C4774927E2182E0010FD89 /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C4774727E218210010FD89 /* libgtest.a */; };
+		54C8B80E27C239AC000D1412 /* Source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C8B80327C239AC000D1412 /* Source.cpp */; };
+		54C8B80F27C239AC000D1412 /* Generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C8B80427C239AC000D1412 /* Generator.cpp */; };
+		54C8B81227C239AC000D1412 /* Envelope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C8B80727C239AC000D1412 /* Envelope.cpp */; };
+		54C8B81427C239AC000D1412 /* Slice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C8B80927C239AC000D1412 /* Slice.cpp */; };
+		54C8B81527C239AC000D1412 /* Trigger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54C8B80A27C239AC000D1412 /* Trigger.cpp */; };
+		54C8B82227C239EB000D1412 /* Envelope.h in Headers */ = {isa = PBXBuildFile; fileRef = 54C8B81A27C239EB000D1412 /* Envelope.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54C8B82327C239EB000D1412 /* Trigger.h in Headers */ = {isa = PBXBuildFile; fileRef = 54C8B81B27C239EB000D1412 /* Trigger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54C8B82627C239EB000D1412 /* Source.h in Headers */ = {isa = PBXBuildFile; fileRef = 54C8B81E27C239EB000D1412 /* Source.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54C8B82727C239EB000D1412 /* Generator.h in Headers */ = {isa = PBXBuildFile; fileRef = 54C8B81F27C239EB000D1412 /* Generator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54C8B82927C239EB000D1412 /* Slice.h in Headers */ = {isa = PBXBuildFile; fileRef = 54C8B82127C239EB000D1412 /* Slice.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54CE8C4B27DFCB190061AEA3 /* IEnvelope.h in Headers */ = {isa = PBXBuildFile; fileRef = 54CE8C4A27DFCB190061AEA3 /* IEnvelope.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		545CCA7127E239BD0070EAEA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54C8B7ED27C2396A000D1412 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 54C8B7F427C2396A000D1412;
+			remoteInfo = spotykach_core;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		549959E027E1E96C002A6914 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		540EC1DC27F4E94200D799D4 /* Engine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Engine.h; sourceTree = "<group>"; };
+		5421099827CBC227009858C7 /* Parameters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Parameters.h; sourceTree = "<group>"; };
+		54362FA827F86C96009D123C /* Engine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Engine.cpp; sourceTree = "<group>"; };
+		543A7ECE2832D4510067A9D1 /* SourceTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SourceTest.cpp; sourceTree = "<group>"; };
+		544FF2D027E246DA0040BF1A /* TestSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestSource.h; sourceTree = "<group>"; };
+		544FF2D327E2488F0040BF1A /* TriggerTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TriggerTest.cpp; sourceTree = "<group>"; };
+		545C955D283418EC00D24A2B /* ISliceBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISliceBuffer.h; sourceTree = "<group>"; };
+		545C955E28341A0600D24A2B /* SliceBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SliceBuffer.h; sourceTree = "<group>"; };
+		545C955F28341A7200D24A2B /* SliceBuffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SliceBuffer.cpp; sourceTree = "<group>"; };
+		545CCA7327E239F60070EAEA /* TestGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestGenerator.h; sourceTree = "<group>"; };
+		54639394283434FC00EA0196 /* GeneratorTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GeneratorTest.cpp; sourceTree = "<group>"; };
+		5465B13327F6324E00A7B3CC /* TestEnvelope.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestEnvelope.h; sourceTree = "<group>"; };
+		549959CC27E1D692002A6914 /* IGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IGenerator.h; sourceTree = "<group>"; };
+		549959CD27E1D7B1002A6914 /* ITrigger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ITrigger.h; sourceTree = "<group>"; };
+		549959E227E1E96C002A6914 /* spotycach_core_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = spotycach_core_test; sourceTree = BUILT_PRODUCTS_DIR; };
+		549959E427E1E96C002A6914 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		54A95881283A5AB9009515FD /* Spotykach.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Spotykach.h; sourceTree = "<group>"; };
+		54A95882283A62E0009515FD /* Spotykach.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Spotykach.cpp; sourceTree = "<group>"; };
+		54C4774627E218210010FD89 /* libgmock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgmock.a; path = ../../../../../usr/local/lib/libgmock.a; sourceTree = "<group>"; };
+		54C4774727E218210010FD89 /* libgtest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest.a; path = ../../../../../usr/local/lib/libgtest.a; sourceTree = "<group>"; };
+		54C8B7F527C2396A000D1412 /* libspotykach_core.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libspotykach_core.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		54C8B80327C239AC000D1412 /* Source.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Source.cpp; sourceTree = "<group>"; };
+		54C8B80427C239AC000D1412 /* Generator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Generator.cpp; sourceTree = "<group>"; };
+		54C8B80727C239AC000D1412 /* Envelope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Envelope.cpp; sourceTree = "<group>"; };
+		54C8B80927C239AC000D1412 /* Slice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Slice.cpp; sourceTree = "<group>"; };
+		54C8B80A27C239AC000D1412 /* Trigger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger.cpp; sourceTree = "<group>"; };
+		54C8B81A27C239EB000D1412 /* Envelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Envelope.h; sourceTree = "<group>"; };
+		54C8B81B27C239EB000D1412 /* Trigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger.h; sourceTree = "<group>"; };
+		54C8B81E27C239EB000D1412 /* Source.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Source.h; sourceTree = "<group>"; };
+		54C8B81F27C239EB000D1412 /* Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generator.h; sourceTree = "<group>"; };
+		54C8B82127C239EB000D1412 /* Slice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slice.h; sourceTree = "<group>"; };
+		54CC9E1127DFD4AF00588FC9 /* ISource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISource.h; sourceTree = "<group>"; };
+		54CE8C4A27DFCB190061AEA3 /* IEnvelope.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IEnvelope.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		549959DF27E1E96C002A6914 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				545CCA7027E239BD0070EAEA /* libspotykach_core.a in Frameworks */,
+				54C4774827E2182E0010FD89 /* libgmock.a in Frameworks */,
+				54C4774927E2182E0010FD89 /* libgtest.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54C8B7F327C2396A000D1412 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		549959E327E1E96C002A6914 /* spotycach_core_test */ = {
+			isa = PBXGroup;
+			children = (
+				549959E427E1E96C002A6914 /* main.cpp */,
+				544FF2D327E2488F0040BF1A /* TriggerTest.cpp */,
+				543A7ECE2832D4510067A9D1 /* SourceTest.cpp */,
+				54639394283434FC00EA0196 /* GeneratorTest.cpp */,
+				545CCA7327E239F60070EAEA /* TestGenerator.h */,
+				544FF2D027E246DA0040BF1A /* TestSource.h */,
+				5465B13327F6324E00A7B3CC /* TestEnvelope.h */,
+			);
+			path = spotycach_core_test;
+			sourceTree = "<group>";
+		};
+		54C4774527E218210010FD89 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				54C4774627E218210010FD89 /* libgmock.a */,
+				54C4774727E218210010FD89 /* libgtest.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		54C8B7EC27C2396A000D1412 = {
+			isa = PBXGroup;
+			children = (
+				54C8B7F627C2396A000D1412 /* Products */,
+				54C8B7F727C2396A000D1412 /* spotykach_core */,
+				549959E327E1E96C002A6914 /* spotycach_core_test */,
+				54C4774527E218210010FD89 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		54C8B7F627C2396A000D1412 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				54C8B7F527C2396A000D1412 /* libspotykach_core.a */,
+				549959E227E1E96C002A6914 /* spotycach_core_test */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		54C8B7F727C2396A000D1412 /* spotykach_core */ = {
+			isa = PBXGroup;
+			children = (
+				54C8B82A27C239F2000D1412 /* Headers */,
+				54C8B82C27C23A11000D1412 /* Sources */,
+			);
+			path = spotykach_core;
+			sourceTree = "<group>";
+		};
+		54C8B82A27C239F2000D1412 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				54CE8C4A27DFCB190061AEA3 /* IEnvelope.h */,
+				540EC1DC27F4E94200D799D4 /* Engine.h */,
+				54C8B81A27C239EB000D1412 /* Envelope.h */,
+				54C8B81F27C239EB000D1412 /* Generator.h */,
+				549959CC27E1D692002A6914 /* IGenerator.h */,
+				54C8B82127C239EB000D1412 /* Slice.h */,
+				54C8B81E27C239EB000D1412 /* Source.h */,
+				545C955D283418EC00D24A2B /* ISliceBuffer.h */,
+				545C955E28341A0600D24A2B /* SliceBuffer.h */,
+				54CC9E1127DFD4AF00588FC9 /* ISource.h */,
+				54C8B81B27C239EB000D1412 /* Trigger.h */,
+				549959CD27E1D7B1002A6914 /* ITrigger.h */,
+				5421099827CBC227009858C7 /* Parameters.h */,
+				54A95881283A5AB9009515FD /* Spotykach.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		54C8B82C27C23A11000D1412 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				54C8B80727C239AC000D1412 /* Envelope.cpp */,
+				54362FA827F86C96009D123C /* Engine.cpp */,
+				54C8B80427C239AC000D1412 /* Generator.cpp */,
+				545C955F28341A7200D24A2B /* SliceBuffer.cpp */,
+				54C8B80927C239AC000D1412 /* Slice.cpp */,
+				54C8B80327C239AC000D1412 /* Source.cpp */,
+				54C8B80A27C239AC000D1412 /* Trigger.cpp */,
+				54A95882283A62E0009515FD /* Spotykach.cpp */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		54C8B7F127C2396A000D1412 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				540EC1DD27F4E94200D799D4 /* Engine.h in Headers */,
+				54C8B82227C239EB000D1412 /* Envelope.h in Headers */,
+				54C8B82327C239EB000D1412 /* Trigger.h in Headers */,
+				545CCA7427E23A640070EAEA /* IGenerator.h in Headers */,
+				545CCA7627E23A6F0070EAEA /* ITrigger.h in Headers */,
+				54CE8C4B27DFCB190061AEA3 /* IEnvelope.h in Headers */,
+				545CCA7527E23A6C0070EAEA /* ISource.h in Headers */,
+				54C8B82727C239EB000D1412 /* Generator.h in Headers */,
+				54A95884283A716C009515FD /* Spotykach.h in Headers */,
+				5421099927CBC227009858C7 /* Parameters.h in Headers */,
+				54C8B82927C239EB000D1412 /* Slice.h in Headers */,
+				54C8B82627C239EB000D1412 /* Source.h in Headers */,
+				545C956128342A2E00D24A2B /* ISliceBuffer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		549959E127E1E96C002A6914 /* spotycach_core_test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 549959E827E1E96C002A6914 /* Build configuration list for PBXNativeTarget "spotycach_core_test" */;
+			buildPhases = (
+				549959DE27E1E96C002A6914 /* Sources */,
+				549959DF27E1E96C002A6914 /* Frameworks */,
+				549959E027E1E96C002A6914 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				545CCA7227E239BD0070EAEA /* PBXTargetDependency */,
+			);
+			name = spotycach_core_test;
+			productName = spotycach_core_test;
+			productReference = 549959E227E1E96C002A6914 /* spotycach_core_test */;
+			productType = "com.apple.product-type.tool";
+		};
+		54C8B7F427C2396A000D1412 /* spotykach_core */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54C8B80027C2396A000D1412 /* Build configuration list for PBXNativeTarget "spotykach_core" */;
+			buildPhases = (
+				54C8B7F127C2396A000D1412 /* Headers */,
+				54C8B7F227C2396A000D1412 /* Sources */,
+				54C8B7F327C2396A000D1412 /* Frameworks */,
+				54A7141327C25D00001B9B5C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = spotykach_core;
+			productName = spotykach_core;
+			productReference = 54C8B7F527C2396A000D1412 /* libspotykach_core.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		54C8B7ED27C2396A000D1412 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					549959E127E1E96C002A6914 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					54C8B7F427C2396A000D1412 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 54C8B7F027C2396A000D1412 /* Build configuration list for PBXProject "spotykach_core" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 54C8B7EC27C2396A000D1412;
+			productRefGroup = 54C8B7F627C2396A000D1412 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				54C8B7F427C2396A000D1412 /* spotykach_core */,
+				549959E127E1E96C002A6914 /* spotycach_core_test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		54A7141327C25D00001B9B5C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncp $TARGET_BUILD_DIR/libspotykach_core.a $PROJECT_DIR/build/$CONFIGURATION/libspotykach_core.a\ncp -R $TARGET_BUILD_DIR/usr/ $PROJECT_DIR/build/$CONFIGURATION/usr\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		549959DE27E1E96C002A6914 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				544FF2D427E2488F0040BF1A /* TriggerTest.cpp in Sources */,
+				54639395283434FC00EA0196 /* GeneratorTest.cpp in Sources */,
+				549959E527E1E96C002A6914 /* main.cpp in Sources */,
+				543A7ECF2832D4510067A9D1 /* SourceTest.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54C8B7F227C2396A000D1412 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54C8B80F27C239AC000D1412 /* Generator.cpp in Sources */,
+				54362FA927F86C96009D123C /* Engine.cpp in Sources */,
+				54C8B80E27C239AC000D1412 /* Source.cpp in Sources */,
+				545C956028341A7200D24A2B /* SliceBuffer.cpp in Sources */,
+				54A95883283A62E0009515FD /* Spotykach.cpp in Sources */,
+				54C8B81427C239AC000D1412 /* Slice.cpp in Sources */,
+				54C8B81527C239AC000D1412 /* Trigger.cpp in Sources */,
+				54C8B81227C239AC000D1412 /* Envelope.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		545CCA7227E239BD0070EAEA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 54C8B7F427C2396A000D1412 /* spotykach_core */;
+			targetProxy = 545CCA7127E239BD0070EAEA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		549959E627E1E96C002A6914 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79Q3WR8WUF;
+				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					"$SOURCE_ROOT/build/$(CONFIGURATION)/usr/local/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$SOURCE_ROOT/build/$(CONFIGURATION)",
+					/usr/local/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		549959E727E1E96C002A6914 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79Q3WR8WUF;
+				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = (
+					"$SOURCE_ROOT/build/$(CONFIGURATION)/usr/local/include",
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$SOURCE_ROOT/build/$(CONFIGURATION)",
+					/usr/local/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		54C8B7FE27C2396A000D1412 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		54C8B7FF27C2396A000D1412 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		54C8B80127C2396A000D1412 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79Q3WR8WUF;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		54C8B80227C2396A000D1412 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79Q3WR8WUF;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		549959E827E1E96C002A6914 /* Build configuration list for PBXNativeTarget "spotycach_core_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				549959E627E1E96C002A6914 /* Debug */,
+				549959E727E1E96C002A6914 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		54C8B7F027C2396A000D1412 /* Build configuration list for PBXProject "spotykach_core" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54C8B7FE27C2396A000D1412 /* Debug */,
+				54C8B7FF27C2396A000D1412 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		54C8B80027C2396A000D1412 /* Build configuration list for PBXNativeTarget "spotykach_core" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54C8B80127C2396A000D1412 /* Debug */,
+				54C8B80227C2396A000D1412 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 54C8B7ED27C2396A000D1412 /* Project object */;
+}
