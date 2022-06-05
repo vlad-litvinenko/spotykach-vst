@@ -22,6 +22,7 @@ Slice::Slice(ISource& inSource, ISliceBuffer& inBuffer, IEnvelope& inEnvelope) :
 void Slice::activate(long offset, long length, int direction) {
     if (_needsReset || offset != _offset) {
         _buffer.reset();
+        _needsReset = false;
     }
     _offset = offset;
     _length = length;
