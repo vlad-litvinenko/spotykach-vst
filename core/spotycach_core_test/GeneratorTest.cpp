@@ -18,32 +18,27 @@ class GeneratorTest: public Test {
 protected:
     Generator *_gen;
     Source* _src;
-    SliceBuffer* _buf;
     TestEnvelope* _env;
     
     void SetUp() override {
         _src = new Source();
         _src->reset();
         
-        _buf = new SliceBuffer();
-        _buf->reset();
-        
         _env = new TestEnvelope();
         
-        _gen = new Generator(*_src, *_buf, *_env);
+        _gen = new Generator(*_src, *_env);
     }
     
     void TearDown() override {
         delete _gen;
         delete _src;
-        delete _buf;
         delete _env;
     }
     
     void doTestGenerateSlice() {
         auto sliceLength = 20;
         _gen->adjustBuffers(50);
-        _gen->activateSlice(0, sliceLength, true, true);
+        _gen->activateSlice(0, 0, sliceLength, true);
         
         for (auto i = 0; i < 100; i++) {
             float out0 = 0;
@@ -72,7 +67,7 @@ protected:
         for (auto i = 0; i < 20; i++) {
             _src->write(i, i);
             if (i == offset) {
-                _gen->activateSlice(offset, sliceLength, true, true);
+                _gen->activateSlice(0, offset, sliceLength, true);
             }
             
             
@@ -98,7 +93,7 @@ protected:
         for (auto i = 0; i < 30; i++) {
             _src->write(i, i);
             if (i == offset) {
-                _gen->activateSlice(offset, sliceLength, true, true);
+                _gen->activateSlice(0, offset, sliceLength, true);
             }
             
             

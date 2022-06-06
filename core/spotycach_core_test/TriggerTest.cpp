@@ -57,9 +57,10 @@ protected:
             _trig->setRepeats(maxRepeats);
             count = maxRepeats;
         }
+        long onset = 0;
+        long pickupOffset = start * framesPerMeasure;
         long framesPerSlice = step * framesPerMeasure;
-        long startOffset = start * framesPerMeasure;
-        EXPECT_CALL(*_gen, activateSlice(startOffset, framesPerSlice, false, false)).Times(patterns * count);
+        EXPECT_CALL(*_gen, activateSlice(onset, pickupOffset, framesPerSlice, false)).Times(patterns * count);
         
         double currentBeat { 0 };
         double beatIncrement = 4 * buffer / framesPerMeasure;
