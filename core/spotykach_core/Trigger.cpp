@@ -181,7 +181,7 @@ void Trigger::next(bool engaged) {
         if (_nextPointIndex > _pointsCount - 1) _nextPointIndex = 0;
         _scheduled = false;
     }
-    _framesTillUnlock = std::max(0l, --_framesTillUnlock);
+    if (_framesTillUnlock > 0) _framesTillUnlock--;
 }
 
 void Trigger::reset() {
