@@ -10,13 +10,13 @@
 #include <vector>
 #include <algorithm>
 
-Source::Source() : _mode(SourceMode::freeze), _writeHead(0), _readHead(0) {
+Source::Source() : _frozen(false), _writeHead(0), _readHead(0) {
     reset();
 }
 
-void Source::setMode(SourceMode mode) {
-    if (mode != _mode) {
-        _mode = mode;
+void Source::setFrozen(bool frozen) {
+    if (frozen != _frozen) {
+        _frozen = frozen;
         reset();
     }
 }
@@ -40,7 +40,7 @@ void Source::read(float& out0, float& out1, unsigned long frame) {
 }
 
 void Source::write(float in0, float in1) {
-    if (_mode == SourceMode::freeze && _readHead == _bufferLength - 1) return;
+    if (_frozen && _readHead == _bufferLength - 1) return;
     _buffer[0][_writeHead] = in0;
     _buffer[1][_writeHead] = in1;
     _readHead = _writeHead;

@@ -39,6 +39,7 @@ struct RawParameters {
     double retriggerChance  = 1.0;
     bool on                 = false;
     bool declick            = false;
+    bool frozen             = false;
 };
 
 class Engine {
@@ -74,7 +75,7 @@ public:
     
     void preprocess(PlaybackParameters p);
     
-    void setMode(SourceMode mode);
+    void setFrozen(bool frozen);
     
     void process(float in0, float in1, float* out0, float* out1, bool engaged);
     

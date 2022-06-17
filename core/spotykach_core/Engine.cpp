@@ -156,8 +156,9 @@ void Engine::setDirection(double normVal) {
     _generator->setDirection(direction);
 }
 
-void Engine::setMode(SourceMode mode) {
-    _source->setMode(mode);
+void Engine::setFrozen(bool frozen) {
+    _raw.frozen = frozen;
+    _source->setFrozen(frozen);
 }
 
 void Engine::preprocess(PlaybackParameters p) {

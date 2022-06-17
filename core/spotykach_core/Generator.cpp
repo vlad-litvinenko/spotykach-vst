@@ -79,6 +79,5 @@ void Generator::activateSlice(long onset, long offset, long length, bool reset) 
 
 void Generator::reset () {
     _fwd = true;
-    _source.reset();
     std::for_each(_slices.begin(), _slices.end(), [](Slice* s) { s->setNeedsReset(); });
 }

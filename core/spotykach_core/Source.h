@@ -15,8 +15,8 @@
 class Source: public ISource {
 public:
     Source();
-    void setMode(SourceMode) override;
-    bool isFlow() override { return _mode == SourceMode::flow; }
+    void setFrozen(bool) override;
+    bool isFrozen() override { return _frozen; }
     
     void size(unsigned long) override;
     
@@ -33,7 +33,7 @@ private:
     unsigned long _bufferLength;
     unsigned long _writeHead;
     unsigned long _readHead;
-    SourceMode _mode;
+    bool _frozen;
     std::vector<float> _buffer[2];
 };
 

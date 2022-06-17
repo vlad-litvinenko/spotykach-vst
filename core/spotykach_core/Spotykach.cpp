@@ -63,7 +63,7 @@ void Spotykach::setCascade(bool value, int index) {
     _cascade[index] = value;
     
     Engine& e = engineAt(index);
-    e.setMode(value ? SourceMode::flow : SourceMode::freeze);
+    e.setFrozen(!value);
     e.reset();
 }
 

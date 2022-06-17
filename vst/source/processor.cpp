@@ -253,6 +253,13 @@ void SpotykachProcessor::readParameters(IParameterChanges& ipc) {
                     changes[engineIndex] = 1;
                     break;
                 }
+                case spotykach::kP_Freeze: {
+                    ParamValue aFreeze;
+                    get(aFreeze, queue, index);
+                    e.setFrozen(aFreeze > 0.5);
+                    changes[engineIndex] = 1;
+                    break;
+                }
                 case spotykach::kP_OwnBus: {
                     ParamValue anOwnBus;
                     get(anOwnBus, queue, index);
@@ -433,6 +440,10 @@ tresult PLUGIN_API SpotykachProcessor::setState (IBStream* state)
         if (!streamer.readBool(declick)) return kResultFalse;
         e.setDeclick(declick);
         
+        bool frozen = false;
+        if (!streamer.readBool(frozen)) return kResultFalse;
+        e.setFrozen(frozen);
+        
         double level = 0;
         if (!streamer.readDouble(level)) return kResultFalse;
         _core->setVolume(level, i);
@@ -475,6 +486,7 @@ tresult PLUGIN_API SpotykachProcessor::getState (IBStream* state) {
         streamer.writeDouble(r.retriggerChance);
         streamer.writeBool(r.on);
         streamer.writeBool(r.declick);
+        streamer.writeBool(r.frozen);
         
         streamer.writeDouble(cr.vol[i]);
         streamer.writeBool(cr.cascade[i]);

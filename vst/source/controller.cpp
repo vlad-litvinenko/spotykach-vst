@@ -83,6 +83,11 @@ tresult PLUGIN_API SpotykachController::initialize (FUnknown* context)
         paramPID = u + kP_RetriggerChance;
         parameters.addParameter(STR("Retrigger chance"), nullptr, stepCount, defaultValue, f, paramPID, u);
         
+        stepCount = 1;
+        defaultValue = 0.;
+        paramPID = u + kP_Freeze;
+        parameters.addParameter(STR("Freeze"), nullptr, stepCount, defaultValue, f, paramPID, u);
+        
         //Out
         parameters.addParameter(new RangeParameter(STR("PatternLength"), u + pid(SpotykachVSTParam::kPatternLength), nullptr, 0., 1000., 0., 0., ParameterInfo::kIsHidden | ParameterInfo::kIsReadOnly, u));
         
@@ -194,6 +199,10 @@ tresult PLUGIN_API SpotykachController::setComponentState (IBStream* state)
         bool declick = false;
         if (!streamer.readBool(declick)) return kResultFalse;
         setParamNormalized(u + kP_Declick, declick ? 1. : 0.);
+        
+        bool frozen = false;
+        if (!streamer.readBool(frozen)) return kResultFalse;
+        setParamNormalized(u + kP_Freeze, frozen ? 1. : 0.);
         
         double level = 0;
         if (!streamer.readDouble(level)) return kResultFalse;
