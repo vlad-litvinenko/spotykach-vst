@@ -49,10 +49,6 @@ void Source::write(float in0, float in1) {
 void Source::reset() {
     std::fill(_buffer[0].begin(), _buffer[0].end(), 0);
     std::fill(_buffer[1].begin(), _buffer[1].end(), 0);
-    rewind();
-    _readHead = 0;
-}
-
-void Source::rewind() {
     _writeHead = 0;
+    _readHead = 0;
 }

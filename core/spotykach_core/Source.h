@@ -28,13 +28,11 @@ public:
     void reset() override;
     
 private:
-    void rewind();
-    
+    std::vector<float> _buffer[2];
     unsigned long _bufferLength;
     unsigned long _writeHead;
     unsigned long _readHead;
     bool _frozen;
-    std::vector<float> _buffer[2];
 };
 
 #endif
