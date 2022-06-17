@@ -15,10 +15,7 @@ Source::Source() : _frozen(false), _writeHead(0), _readHead(0) {
 }
 
 void Source::setFrozen(bool frozen) {
-    if (frozen != _frozen) {
-        _frozen = frozen;
-        reset();
-    }
+    _frozen = frozen;
 }
 
 unsigned long Source::readHead() {
@@ -40,9 +37,10 @@ void Source::read(float& out0, float& out1, unsigned long frame) {
 }
 
 void Source::write(float in0, float in1) {
-    if (_frozen && _readHead == _bufferLength - 1) return;
-    _buffer[0][_writeHead] = in0;
-    _buffer[1][_writeHead] = in1;
+    if (!_frozen) {
+        _buffer[0][_writeHead] = in0;
+        _buffer[1][_writeHead] = in1;
+    }
     _readHead = _writeHead;
     _writeHead++;
     _writeHead %= _bufferLength;
