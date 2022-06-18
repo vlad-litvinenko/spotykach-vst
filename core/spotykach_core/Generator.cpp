@@ -54,7 +54,7 @@ void Generator::generate(float* out0, float* out1) {
 
 void Generator::activateSlice(long onset, long offset, long length, bool reset) {
     if (reset) {
-        std::for_each(_slices.begin(), _slices.end(), [](Slice* s) { s->setNeedsReset(); });
+        setNeedresetSlices();
         _onset = onset;
     }
     
@@ -79,5 +79,9 @@ void Generator::activateSlice(long onset, long offset, long length, bool reset) 
 
 void Generator::reset () {
     _fwd = true;
+    setNeedresetSlices();
+}
+
+void Generator::setNeedresetSlices() {
     std::for_each(_slices.begin(), _slices.end(), [](Slice* s) { s->setNeedsReset(); });
 }

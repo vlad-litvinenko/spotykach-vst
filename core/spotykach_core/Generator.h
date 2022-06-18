@@ -38,6 +38,8 @@ private:
     long _offset;
     bool _fwd;
     vlly::spotykach::Direction _direction;
+    
+    void setNeedresetSlices();
 };
 
 #endif /* defined(__Spotykach__Synth__) */
