@@ -212,5 +212,6 @@ void Engine::process(float in0, float in1, float* out0, float* out1, bool engage
 
 void Engine::reset(bool soft) {
     _generator->reset();
+    if (soft) return;
     _trigger->reset();
 }
