@@ -31,7 +31,7 @@ void Generator::setDirection(Direction direction) {
 }
 
 void Generator::adjustBuffers(long size) {
-    _source.size(2 * size);
+    _source.size(size);
     std::for_each(_slices.begin(), _slices.end(), [size](Slice* s) { s->sizeBuffer(size); });
 }
 
