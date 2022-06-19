@@ -63,9 +63,9 @@ protected:
         for (int i = 0; i < 100; i++) {
             _src->write(i, i);
             if (i >= 20) {
-                _src->read(out0, out1, i + 8); //read at 8-th position of 10-slots buffer
-                EXPECT_EQ(out0, float(i - 2)); //8-th position value at this point is 18 so this difference should remain
-                EXPECT_EQ(out1, float(i - 2)); //8-th position value at this point is 18 so this difference should remain
+                _src->read(out0, out1, i + 8); //read at 8-th position of 10-slots buffer.
+                EXPECT_EQ(out0, float(i - 2)); //8-th position value is 18 for i==20 (i.e. write head
+                EXPECT_EQ(out1, float(i - 2)); //is at 0 after 2nd loop). This relation should remain.
             }
         }
     }
