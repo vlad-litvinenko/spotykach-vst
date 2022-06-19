@@ -25,41 +25,23 @@ protected:
         delete _src;
     }
     
-    void doTestBufferNotFilledFreeze() {
-        for (int i = 0; i < 8; i++) {
-            _src->write(1., 1.);
-        }
-        
-        float l10 = 0;
-        float l11 = 0;
-        _src->read(l10, l11, 7);
-        EXPECT_EQ(l10, 1.);
-        EXPECT_EQ(l11, 1.);
-        
-        float l20 = 0;
-        float l21 = 0;
-        _src->read(l20, l21, 8);
-        EXPECT_EQ(l20, 0);
-        EXPECT_EQ(l21, 0);
-    }
-    
-    void doTestBufferFilledFreeze() {
-        for (int i = 0; i < 10; i++) {
-            float value = i < 5 ? 1. : 2.;
-            _src->write(value, value);
+    void doTestBufferFreeze() {
+        for (int i = 0; i < 20; i++) {
+            if (i == 15) _src->setFrozen(true);
+            _src->write(i, i);
         }
         
         float l10 = 0;
         float l11 = 0;
         _src->read(l10, l11, 4);
-        EXPECT_EQ(l10, 1.);
-        EXPECT_EQ(l11, 1.);
+        EXPECT_EQ(l10, 14.);
+        EXPECT_EQ(l11, 14.);
         
         float l20 = 0;
         float l21 = 0;
         _src->read(l20, l21, 9);
-        EXPECT_EQ(l20, 2.);
-        EXPECT_EQ(l21, 2.);
+        EXPECT_EQ(l20, 9.);
+        EXPECT_EQ(l21, 9.);
     }
     
     void doTestFlow() {
@@ -89,7 +71,6 @@ protected:
     }
 };
 
-TEST_F(SourceTest, bufferNotFilledFreeze) { doTestBufferNotFilledFreeze(); }
-TEST_F(SourceTest, bufferFilledFreeze) { doTestBufferFilledFreeze(); }
+TEST_F(SourceTest, bufferFreeze) { doTestBufferFreeze(); }
 TEST_F(SourceTest, bufferFlow) { doTestFlow(); }
 TEST_F(SourceTest, bufferFlowOffset) { doTestFlowOffset(); }
