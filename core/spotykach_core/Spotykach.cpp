@@ -72,13 +72,13 @@ void Spotykach::preprocess(PlaybackParameters p) {
 }
 
 void Spotykach::process(float** inBuf, bool inMono, float** outBuf[kEnginesCount], bool outMono, int numFrames) {
-    float cascadeSum0 = 0;
-    float cascadeSum1 = 0;
     for (int f = 0; f < numFrames; f++) {
         float in0Ext = inBuf[0][f];
         float in1Ext = inMono ? in0Ext : inBuf[1][f];
         float out0Summ = 0;
         float out1Summ = 0;
+        float cascadeSum0 = 0;
+        float cascadeSum1 = 0;
         float in0 = 0;
         float in1 = 0;
         float out0 = 0;
@@ -90,13 +90,6 @@ void Spotykach::process(float** inBuf, bool inMono, float** outBuf[kEnginesCount
             Engine& e = engineAt(i);
             in0 = _cascade[i] ? cascadeSum0 : in0Ext;
             in1 = _cascade[i] ? cascadeSum1 : in0Ext;
-            if (cascadeSum0 >= 1.0) {
-                
-            }
-            if (i == 0) {
-                cascadeSum0 = 0;
-                cascadeSum1 = 0;
-            }
             
             previousLocking = i > 0 && (locking >> (i - 1) & 1);
             switch (_mutex) {
