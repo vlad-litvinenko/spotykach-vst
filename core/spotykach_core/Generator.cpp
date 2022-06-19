@@ -23,7 +23,7 @@ Generator::Generator(ISource& inSource, IEnvelope& inEnvelope) :
         auto buffer = new SliceBuffer();
         _slices.push_back(new Slice(_source, *buffer ,_envelope));
     }
-    reset();
+    reset(true);
 }
 
 void Generator::setDirection(Direction direction) {
@@ -77,9 +77,10 @@ void Generator::activateSlice(long onset, long offset, long length, bool reset) 
     }
 }
 
-void Generator::reset () {
+void Generator::reset(bool hard) {
     _fwd = true;
     setNeedresetSlices();
+    if (hard) _source.reset();
 }
 
 void Generator::setNeedresetSlices() {
