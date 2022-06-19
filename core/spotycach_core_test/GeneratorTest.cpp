@@ -60,7 +60,7 @@ protected:
     void doTestGenerateSliceOffset() {
         auto sliceLength = 8;
         auto offset = 5;
-        _src->setMode(SourceMode::flow);
+        _src->setFrozen(false);
         _gen->adjustBuffers(20);
         float out0 = 0;
         float out1 = 0;
@@ -86,7 +86,7 @@ protected:
     void doTestGenerateSliceOffsetFlow() {
         auto sliceLength = 8;
         auto offset = 5;
-        _src->setMode(SourceMode::flow);
+        _src->setFrozen(false);
         _gen->adjustBuffers(10);
         float out0 = 0;
         float out1 = 0;

@@ -65,7 +65,7 @@ protected:
     void doTestFlow() {
         float out0 = 0;
         float out1 = 0;
-        _src->setMode(SourceMode::flow);
+        _src->setFrozen(false);
         for (int i = 0; i < 100; i++) {
             _src->write(i, i);
             _src->read(out0, out1, _src->readHead());
@@ -77,7 +77,7 @@ protected:
     void doTestFlowOffset() {
         float out0 = 0;
         float out1 = 0;
-        _src->setMode(SourceMode::flow);
+        _src->setFrozen(false);
         for (int i = 0; i < 100; i++) {
             _src->write(i, i);
             if (i >= 20) {
@@ -89,7 +89,7 @@ protected:
     }
 };
 
-TEST_F(SourceTest, frontBufferNotFilledFreeze) { doTestBufferNotFilledFreeze(); }
-TEST_F(SourceTest, frontBufferFilledFreeze) { doTestBufferFilledFreeze(); }
+TEST_F(SourceTest, bufferNotFilledFreeze) { doTestBufferNotFilledFreeze(); }
+TEST_F(SourceTest, bufferFilledFreeze) { doTestBufferFilledFreeze(); }
 TEST_F(SourceTest, bufferFlow) { doTestFlow(); }
 TEST_F(SourceTest, bufferFlowOffset) { doTestFlowOffset(); }

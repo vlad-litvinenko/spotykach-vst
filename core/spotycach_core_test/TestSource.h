@@ -12,8 +12,8 @@
 
 class TestSource: public ISource {
 public:
-    MOCK_METHOD(void, setMode, (SourceMode), (override));
-    MOCK_METHOD(bool, isFlow, (), (override));
+    MOCK_METHOD(void, setFrozen, (bool), (override));
+    MOCK_METHOD(bool, isFrozen, (), (override));
     MOCK_METHOD(void, size, (unsigned long), (override));
     MOCK_METHOD(void, write, (float, float), (override));
     MOCK_METHOD(unsigned long, readHead, (), (override));
