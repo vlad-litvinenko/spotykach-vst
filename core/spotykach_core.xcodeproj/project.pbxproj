@@ -35,6 +35,8 @@
 		54C8B82727C239EB000D1412 /* Generator.h in Headers */ = {isa = PBXBuildFile; fileRef = 54C8B81F27C239EB000D1412 /* Generator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		54C8B82927C239EB000D1412 /* Slice.h in Headers */ = {isa = PBXBuildFile; fileRef = 54C8B82127C239EB000D1412 /* Slice.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		54CE8C4B27DFCB190061AEA3 /* IEnvelope.h in Headers */ = {isa = PBXBuildFile; fileRef = 54CE8C4A27DFCB190061AEA3 /* IEnvelope.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54E38560286252EC0086E4BC /* LFO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54E3855F286252EC0086E4BC /* LFO.cpp */; };
+		54E385622862550C0086E4BC /* LFOTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54E385612862550C0086E4BC /* LFOTest.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,10 @@
 		54C8B82127C239EB000D1412 /* Slice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slice.h; sourceTree = "<group>"; };
 		54CC9E1127DFD4AF00588FC9 /* ISource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISource.h; sourceTree = "<group>"; };
 		54CE8C4A27DFCB190061AEA3 /* IEnvelope.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IEnvelope.h; sourceTree = "<group>"; };
+		54E3855B28624C8F0086E4BC /* ILFO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ILFO.h; sourceTree = "<group>"; };
+		54E3855C28624DC80086E4BC /* LFO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFO.h; sourceTree = "<group>"; };
+		54E3855F286252EC0086E4BC /* LFO.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LFO.cpp; sourceTree = "<group>"; };
+		54E385612862550C0086E4BC /* LFOTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LFOTest.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +129,7 @@
 				544FF2D327E2488F0040BF1A /* TriggerTest.cpp */,
 				543A7ECE2832D4510067A9D1 /* SourceTest.cpp */,
 				54639394283434FC00EA0196 /* GeneratorTest.cpp */,
+				54E385612862550C0086E4BC /* LFOTest.cpp */,
 				545CCA7327E239F60070EAEA /* TestGenerator.h */,
 				544FF2D027E246DA0040BF1A /* TestSource.h */,
 				5465B13327F6324E00A7B3CC /* TestEnvelope.h */,
@@ -184,6 +191,8 @@
 				549959CD27E1D7B1002A6914 /* ITrigger.h */,
 				5421099827CBC227009858C7 /* Parameters.h */,
 				54A95881283A5AB9009515FD /* Spotykach.h */,
+				54E3855B28624C8F0086E4BC /* ILFO.h */,
+				54E3855C28624DC80086E4BC /* LFO.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -192,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				54C8B80727C239AC000D1412 /* Envelope.cpp */,
+				54E3855F286252EC0086E4BC /* LFO.cpp */,
 				54362FA827F86C96009D123C /* Engine.cpp */,
 				54C8B80427C239AC000D1412 /* Generator.cpp */,
 				545C955F28341A7200D24A2B /* SliceBuffer.cpp */,
@@ -328,6 +338,7 @@
 			files = (
 				544FF2D427E2488F0040BF1A /* TriggerTest.cpp in Sources */,
 				54639395283434FC00EA0196 /* GeneratorTest.cpp in Sources */,
+				54E385622862550C0086E4BC /* LFOTest.cpp in Sources */,
 				549959E527E1E96C002A6914 /* main.cpp in Sources */,
 				543A7ECF2832D4510067A9D1 /* SourceTest.cpp in Sources */,
 			);
@@ -337,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54E38560286252EC0086E4BC /* LFO.cpp in Sources */,
 				54C8B80F27C239AC000D1412 /* Generator.cpp in Sources */,
 				54362FA927F86C96009D123C /* Engine.cpp in Sources */,
 				54C8B80E27C239AC000D1412 /* Source.cpp in Sources */,
