@@ -5,7 +5,7 @@
 //  Created by Vladyslav Lytvynenko on 17.05.22.
 //
 
-#include <stdio.h>
+
 #include <gtest/gtest.h>
 #include "Generator.h"
 #include "Source.h"
