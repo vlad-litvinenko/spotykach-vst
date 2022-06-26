@@ -10,8 +10,9 @@
 
 class ILFO {
 public:
+    virtual void setPeriod(double period) = 0;
     virtual void setFramesPerMeasure(long frames) = 0;
-    virtual float valueAt(double beat, int frame) = 0;
+    virtual float triangleValueAt(double beat, int frame) = 0;
 };
 
 #endif /* ILFO_h */

@@ -14,12 +14,15 @@ class LFO: public ILFO {
 public:
     LFO();
     
+    void setPeriod(double) override;
     void setFramesPerMeasure(long frames) override;
-    float valueAt(double beat, int frame) override;
+    float triangleValueAt(double beat, int frame) override;
     
 private:
-    long _framesPerMeasure;
-    long _framesPerBeat;
-};
+    long _framesPerMeasure { 0 };
+    long _framesPerBeat { 0 };
+    double _period { 0 };
+    double _amp { 2 };
+ };
 
 #endif /* LFO_h */
