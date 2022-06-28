@@ -14,18 +14,21 @@ class LFO: public ILFO {
 public:
     LFO();
     
-    void setAmplitude(double amplitude) override;
+    bool isOn() override { return _isOn; };
+    void setIsOn(bool) override;
+    void setAmplitude(double) override;
     void setPeriod(double) override;
     void setCurrentBeat(double) override;
-    void setFramesPerMeasure(long frames) override;
-    float triangleValueAt(int frame) override;
+    void setFramesPerMeasure(long) override;
+    float triangleValueAt(int) override;
     
 private:
+    bool _isOn { false };
     long _framesPerMeasure { 0 };
     long _framesPerBeat { 0 };
-    double _period { 0 };
-    double _amp { 2 };
     double _currentBeat { 0 };
+    double _period { 0.25 }; // 1/4
+    double _amp { 0.25 }; // +0.25...-0.25
  };
 
 #endif /* LFO_h */

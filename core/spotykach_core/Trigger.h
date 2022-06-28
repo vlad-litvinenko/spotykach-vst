@@ -12,6 +12,7 @@
 #include <vector>
 #include "IGenerator.h"
 #include "ITrigger.h"
+#include "ILFO.h"
 #include <random>
 
 static inline void adjustNextIndex(const std::vector<double>& points, int& nextIndex, double beat, bool isLaunch) {
@@ -35,7 +36,7 @@ static inline void adjustNextIndex(const std::vector<double>& points, int& nextI
 
 class Trigger: public ITrigger {
 public:
-    Trigger(IGenerator& inGenerator);
+    Trigger(IGenerator& inGenerator, ILFO& inSlicePositionLFO);
     
     int pointsCount() override { return _pointsCount; };
     int beatsPerPattern() override { return _beatsPerPattern; };
@@ -61,6 +62,7 @@ public:
     
 private:
     IGenerator& _generator;
+    ILFO& _slicePositionLFO;
 
     double _start;
     double _step;
@@ -87,6 +89,7 @@ private:
     long _framesPerBeat;
     long _framesTillTrigger;
     long _framesTillUnlock;
+    long _currentFrame;
 };
 
 #endif

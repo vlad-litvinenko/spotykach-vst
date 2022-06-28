@@ -8,6 +8,11 @@
 #include "LFO.h"
 #include <cmath>
 
+//"Note that in many programming languages, the % operator
+//is a remainder operator (with result the same sign as the dividend),
+//not a modulo operator; the modulo operation can be obtained by
+//using ((x % p) + p) % p in place of x % p."
+//https://en.wikipedia.org/wiki/Triangle_wave
 template<typename T>
 inline float mod(T a, T b) {
     return ((a % b) + b) % b;
@@ -15,12 +20,16 @@ inline float mod(T a, T b) {
 
 LFO::LFO() {}
 
+void LFO::setIsOn(bool value) {
+    _isOn = value;
+}
+
 void LFO::setAmplitude(double amplitude) {
     _amp = 2 * amplitude;
 }
 
 void LFO::setPeriod(double value) {
-    _period = value;
+    _period = std::fmin(std::fmax(value, 0.0078125), 1.); // 1/128...1
 }
 
 void LFO::setCurrentBeat(double value) {

@@ -13,6 +13,8 @@
 
 class TestLFO: public ILFO {
 public:
+    MOCK_METHOD(bool, isOn, (), (override));
+    MOCK_METHOD(void, setIsOn, (bool), (override));
     MOCK_METHOD(void, setAmplitude, (double), (override));
     MOCK_METHOD(void, setPeriod, (double), (override));
     MOCK_METHOD(void, setCurrentBeat, (double), (override));

@@ -10,6 +10,8 @@
 
 class ILFO {
 public:
+    virtual bool isOn() = 0;
+    virtual void setIsOn(bool isOn) = 0;
     virtual void setAmplitude(double amplitude) = 0;
     virtual void setPeriod(double period) = 0;
     virtual void setCurrentBeat(double beat) = 0;

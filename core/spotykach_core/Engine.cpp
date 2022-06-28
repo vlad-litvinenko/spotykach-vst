@@ -13,6 +13,7 @@
 #include "Generator.h"
 #include "Trigger.h"
 #include "SliceBuffer.h"
+#include "LFO.h"
 
 using namespace vlly;
 using namespace spotykach;
@@ -30,7 +31,8 @@ Engine::Engine(): _tempo(0), _step(0.125), _grid(kGrid_Even)
     _envelope       = new Envelope();
     _source         = new Source();
     _generator      = new Generator(*_source, *_envelope);
-    _trigger        = new Trigger(*_generator);
+    _lfo            = new LFO();
+    _trigger        = new Trigger(*_generator, *_lfo);
     
     setStart(_raw.start);
     setShift(_raw.shift);

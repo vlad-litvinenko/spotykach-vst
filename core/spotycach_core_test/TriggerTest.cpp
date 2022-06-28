@@ -12,21 +12,24 @@
 #include "TestGenerator.h"
 #include "TestSource.h"
 #include "TestEnvelope.h"
+#include "TestLFO.h"
 
 using namespace ::testing;
 
 class TriggerTest: public Test {
 protected:
-    Trigger *_trig;
-    TestGenerator *_gen;
-    TestSource *_src;
-    TestEnvelope *_env;
+    Trigger* _trig;
+    TestGenerator* _gen;
+    TestSource* _src;
+    TestEnvelope* _env;
+    TestLFO* _lfo;
     
     void SetUp() override {
         _gen = new TestGenerator();
         _src = new TestSource();
         _env = new TestEnvelope();
-        _trig = new Trigger(*_gen);
+        _lfo = new TestLFO();
+        _trig = new Trigger(*_gen, *_lfo);
     }
     
     void TearDown() override {

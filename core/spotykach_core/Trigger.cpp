@@ -14,8 +14,9 @@
 static const int kDefaultQuadrat        = 4;
 static const double kSecondsPerMinute   = 60.0;
 
-Trigger::Trigger(IGenerator &inGenerator) :
+Trigger::Trigger(IGenerator& inGenerator, ILFO& inStartLFO) :
     _generator(inGenerator),
+    _slicePositionLFO(inStartLFO),
     _step(0),
     _start(0),
     _needsAdjustIndexes(true),
@@ -31,7 +32,8 @@ Trigger::Trigger(IGenerator &inGenerator) :
     _pickupOffsetFrames(0),
     _framesPerBeat(0),
     _framesPerSlice(0),
-    _framesTillTrigger(0)
+    _framesTillTrigger(0),
+    _currentFrame(0)
 {
     _triggerPoints = new std::vector<double>();
 }
@@ -133,8 +135,9 @@ void Trigger::measure(double tempo, double sampleRate, int bufferSize) {
     double beatsPerMeasure = kDefaultQuadrat * _numerator / _denominator;
     long framesPerMeasure = static_cast<long>(kSecondsPerMinute * sampleRate * beatsPerMeasure / tempo);
     _framesPerBeat = framesPerMeasure / _numerator;
-    _generator.adjustBuffers(_framesPerBeat * _numerator);
+    _generator.adjustBuffers(framesPerMeasure);
     _pickupOffsetFrames = static_cast<long>(framesPerMeasure * _start);
+    _slicePositionLFO.setFramesPerMeasure(framesPerMeasure);
 }
 
 void Trigger::setSlice(double slice, IEnvelope& envelope) {
@@ -159,6 +162,8 @@ void Trigger::schedule(double currentBeat, bool isLaunch) {
     }
     double distance { nextPoint >= normalisedBeat ? nextPoint - normalisedBeat : _beatsPerPattern };
     _framesTillTrigger = distance * _framesPerBeat;
+    if (_slicePositionLFO.isOn()) _slicePositionLFO.setCurrentBeat(currentBeat - static_cast<int>(currentBeat / _numerator) * _numerator);
+    _currentFrame = 0;
     _scheduled = true;
 }
 
@@ -174,7 +179,15 @@ void Trigger::next(bool engaged) {
             }
         }
         if (engaged && _nextPointIndex < _repeats) {
-            _generator.activateSlice(onset, _pickupOffsetFrames, _framesPerSlice, reset);
+            auto sliceOffset = _slicePositionFrames;
+            if (_slicePositionLFO.isOn()) {
+                auto lfoOffset = _slicePositionLFO.triangleValueAt(static_cast<int>(_currentFrame));
+                sliceOffset += lfoOffset * _framesPerBeat * _numerator;
+                if (sliceOffset < 0) sliceOffset = 0;
+                if (sliceOffset >= _framesPerBeat * _numerator) sliceOffset = _framesPerBeat * _numerator;
+                reset = true;
+            }
+            _generator.activateSlice(onset, sliceOffset, _framesPerSlice, reset);
             _framesTillUnlock = 0.015625 * _framesPerBeat * _numerator;
         }
         _nextPointIndex++;
@@ -182,6 +195,7 @@ void Trigger::next(bool engaged) {
         _scheduled = false;
     }
     if (_framesTillUnlock > 0) _framesTillUnlock--;
+    _currentFrame ++;
 }
 
 void Trigger::reset() {

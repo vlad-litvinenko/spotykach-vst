@@ -12,6 +12,7 @@
 #include "ISource.h"
 #include "IEnvelope.h"
 #include "IGenerator.h"
+#include "ILFO.h"
 #include "Parameters.h"
 
 namespace vlly {
@@ -86,6 +87,7 @@ private:
     ISource* _source;
     IEnvelope* _envelope;
     IGenerator* _generator;
+    ILFO* _lfo;
     
     RawParameters _raw;
     
