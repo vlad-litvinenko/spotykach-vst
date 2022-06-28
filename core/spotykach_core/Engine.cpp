@@ -28,23 +28,26 @@ inline int gridStepCount(Grid grid) {
 
 Engine::Engine(): _tempo(0), _step(0.125), _grid(kGrid_Even)
 {
-    _envelope       = new Envelope();
-    _source         = new Source();
-    _generator      = new Generator(*_source, *_envelope);
-    _lfo            = new LFO();
-    _trigger        = new Trigger(*_generator, *_lfo);
+    _envelope           = new Envelope();
+    _source             = new Source();
+    _generator          = new Generator(*_source, *_envelope);
+    _slicePositionLFO   = new LFO();
+    _trigger            = new Trigger(*_generator, *_slicePositionLFO);
     
-    setStart(_raw.start);
+    setSlicePosition(_raw.slicePosition);
     setShift(_raw.shift);
     setGrid(_raw.grid);
     setStepPosition(_raw.stepGridPosition);
-    setSlice(_raw.slice);
+    setSliceLength(_raw.sliceLength);
     setRepeats(_raw.repeats);
     setDirection(_raw.direction);
     setRetrigger(_raw.retrigger);
     setIsOn(_raw.on);
     setDeclick(_raw.declick);
     setRetriggerChance(_raw.retriggerChance);
+    setSlicePositionLFOIsOn(_raw.posLFOIsOn);
+    setSlicePositionLFOAmp(_raw.posLFOAmp);
+    setSlicePositionLFOPeriod(_raw.posLFOPeriod);
     
     _trigger->prepareMeterPattern(_step, 0, 4, 4);
 }
@@ -110,21 +113,21 @@ void Engine::setGrid(double normVal) {
     }
 }
 
-void Engine::setStart(double normVal) {
-    _raw.start = normVal;
+void Engine::setSlicePosition(double normVal) {
+    _raw.slicePosition = normVal;
     double start = std::min(normVal, 127./128.);
     if (start != _start) {
         _start = start;
-        _invalidateStart = true;
+        _invalidateSlicePosition = true;
     }
 }
 
-void Engine::setSlice(double normVal) {
-    _raw.slice = normVal;
+void Engine::setSliceLength(double normVal) {
+    _raw.sliceLength = normVal;
     double slice = fmax(normVal, 1./128.);
     if (slice != _slice) {
         _slice = slice;
-        _invalidateSlice = true;
+        _invalidateSliceLength = true;
     }
 }
 
@@ -145,6 +148,21 @@ void Engine::setRetrigger(double normVal) {
 void Engine::setRetriggerChance(bool value) {
     _raw.retriggerChance = value;
     _trigger->setRetriggerChance(value);
+}
+
+void Engine::setSlicePositionLFOIsOn(bool isOn) {
+    _raw.posLFOIsOn = isOn;
+    _slicePositionLFO->setIsOn(isOn);
+}
+
+void Engine::setSlicePositionLFOAmp(double value) {
+    _raw.posLFOAmp = value;
+    _slicePositionLFO->setAmplitude(value);
+}
+
+void Engine::setSlicePositionLFOPeriod(double value) {
+    _raw.posLFOPeriod = value;
+    _slicePositionLFO->setPeriod(value);
 }
 
 void Engine::setDeclick(bool declick) {
@@ -182,23 +200,23 @@ void Engine::preprocess(PlaybackParameters p) {
             _trigger->prepareMeterPattern(_step, _shift, p.numerator, p.denominator);
         }
         invalidatMeasure = true;
-        _invalidateSlice = true;
+        _invalidateSliceLength = true;
         _invalidatePattern = false;
     }
     
-    if (_invalidateStart) {
+    if (_invalidateSlicePosition) {
         _trigger->setSlicePosition(_start);
         invalidatMeasure = true;
-        _invalidateStart = false;
+        _invalidateSlicePosition = false;
     }
     
     if (invalidatMeasure) {
         _trigger->measure(p.tempo, p.sampleRate, p.bufferSize);
     }
     
-    if (_invalidateSlice) {
-        _invalidateSlice = false;
+    if (_invalidateSliceLength) {
         _trigger->setSliceLength(_slice, *_envelope);
+        _invalidateSliceLength = false;
     }
     
     if (_isPlaying) {

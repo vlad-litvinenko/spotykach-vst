@@ -32,12 +32,15 @@ struct RawParameters {
     double grid             = 0;
     double shift            = 0;
     double stepGridPosition = 6.0 / (EvenStepsCount - 1);
-    double start            = 0;
-    double slice            = 0.5;
+    double slicePosition    = 0;
+    double sliceLength      = 0.5;
     double direction        = 0;
     double repeats          = 8;
     double retrigger        = 0;
     double retriggerChance  = 1.0;
+    double posLFOPeriod     = 0.25;
+    double posLFOAmp        = 0.5;
+    bool posLFOIsOn         = false;
     bool on                 = false;
     bool declick            = false;
     bool frozen             = false;
@@ -55,8 +58,8 @@ public:
     
     bool isLocking() { return _trigger->locking(); };
     
-    void setStart(double start);
-    void setSlice(double slice);
+    void setSlicePosition(double start);
+    void setSliceLength(double slice);
     
     void setShift(double shift);
     void setStepPosition(double stepPosition);
@@ -69,6 +72,10 @@ public:
     
     void setRetrigger(double retrigger);
     void setRetriggerChance(bool value);
+    
+    void setSlicePositionLFOIsOn(bool isOn);
+    void setSlicePositionLFOAmp(double value);
+    void setSlicePositionLFOPeriod(double value);
     
     void setDeclick(bool declick);
     
@@ -87,7 +94,7 @@ private:
     ISource* _source;
     IEnvelope* _envelope;
     IGenerator* _generator;
-    ILFO* _lfo;
+    ILFO* _slicePositionLFO;
     
     RawParameters _raw;
     
@@ -104,8 +111,8 @@ private:
     double _slice;
     
     bool _invalidatePattern;
-    bool _invalidateStart;
-    bool _invalidateSlice;
+    bool _invalidateSlicePosition;
+    bool _invalidateSliceLength;
 };
 }
 }
