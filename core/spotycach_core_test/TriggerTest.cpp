@@ -39,7 +39,7 @@ protected:
         delete _env;
     }
     
-    void doTriggerTest(double shift, double step, double start, int pointsCount, int maxRepeats = 0, int patterns = 1) {
+    void doTriggerTest(double shift, double step, double slicePos, int pointsCount, int maxRepeats = 0, int patterns = 1) {
         double framesPerMeasure { 88200 };
         int buffer { 512 };
         int numerator = 4;
@@ -47,13 +47,13 @@ protected:
         
         _trig->prepareMeterPattern(step, shift, numerator, 4);
         
-        _trig->setStart(start);
+        _trig->setSlicePosition(slicePos);
         
         EXPECT_CALL(*_gen, adjustBuffers);
         _trig->measure(120, 44100, buffer);
         
         EXPECT_CALL(*_env, setFramesPerCrossfade);
-        _trig->setSlice(0.5, *_env);
+        _trig->setSliceLength(0.5, *_env);
         
         int count { pointsCount };
         if (maxRepeats && maxRepeats <= pointsCount) {
@@ -61,7 +61,7 @@ protected:
             count = maxRepeats;
         }
         long onset = 0;
-        long pickupOffset = start * framesPerMeasure;
+        long pickupOffset = slicePos * framesPerMeasure;
         long framesPerSlice = step * framesPerMeasure;
         EXPECT_CALL(*_gen, activateSlice(onset, pickupOffset, framesPerSlice, false)).Times(patterns * count);
         

@@ -187,7 +187,7 @@ void Engine::preprocess(PlaybackParameters p) {
     }
     
     if (_invalidateStart) {
-        _trigger->setStart(_start);
+        _trigger->setSlicePosition(_start);
         invalidatMeasure = true;
         _invalidateStart = false;
     }
@@ -197,8 +197,8 @@ void Engine::preprocess(PlaybackParameters p) {
     }
     
     if (_invalidateSlice) {
-        _trigger->setSlice(_slice, *_envelope);
         _invalidateSlice = false;
+        _trigger->setSliceLength(_slice, *_envelope);
     }
     
     if (_isPlaying) {

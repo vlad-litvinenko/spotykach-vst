@@ -49,8 +49,8 @@ public:
     
     void reset() override;
     
-    void setStart(double) override;
-    void setSlice(double, IEnvelope&) override;
+    void setSlicePosition(double) override;
+    void setSliceLength(double, IEnvelope&) override;
     
     void setRetrigger(int) override;
     void setRetriggerChance(double) override;
@@ -64,7 +64,7 @@ private:
     IGenerator& _generator;
     ILFO& _slicePositionLFO;
 
-    double _start;
+    double _slicePosition;
     double _step;
     bool _needsAdjustIndexes;
     
@@ -84,7 +84,7 @@ private:
     double _retriggerChance;
     std::minstd_rand _retriggerDice;
     
-    long _pickupOffsetFrames;
+    long _slicePositionFrames;
     long _framesPerSlice;
     long _framesPerBeat;
     long _framesTillTrigger;

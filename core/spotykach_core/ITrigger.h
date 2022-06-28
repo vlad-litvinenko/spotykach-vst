@@ -23,8 +23,8 @@ public:
     
     virtual void reset() = 0;
     
-    virtual void setStart(double start) = 0;
-    virtual void setSlice(double, IEnvelope&) = 0;
+    virtual void setSlicePosition(double position) = 0;
+    virtual void setSliceLength(double, IEnvelope&) = 0;
     virtual void setRetrigger(int) = 0;
     virtual void setRetriggerChance(double) = 0;
     

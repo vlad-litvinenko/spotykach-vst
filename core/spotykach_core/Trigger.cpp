@@ -18,7 +18,8 @@ Trigger::Trigger(IGenerator& inGenerator, ILFO& inStartLFO) :
     _generator(inGenerator),
     _slicePositionLFO(inStartLFO),
     _step(0),
-    _start(0),
+    _slicePosition(0),
+    _slicePositionFrames(0),
     _needsAdjustIndexes(true),
     _numerator(0),
     _denominator(0),
@@ -29,7 +30,6 @@ Trigger::Trigger(IGenerator& inGenerator, ILFO& inStartLFO) :
     _scheduled(false),
     _repeats(INT_MAX),
     _retrigger(0),
-    _pickupOffsetFrames(0),
     _framesPerBeat(0),
     _framesPerSlice(0),
     _framesTillTrigger(0),
@@ -125,8 +125,8 @@ void Trigger::prepareMeterPattern(double step, double shift, int numerator, int 
     _needsAdjustIndexes = true;
 }
 
-void Trigger::setStart(double start) {
-    _start = start;
+void Trigger::setSlicePosition(double value) {
+    _slicePosition = value;
 }
 
 void Trigger::measure(double tempo, double sampleRate, int bufferSize) {
@@ -136,17 +136,17 @@ void Trigger::measure(double tempo, double sampleRate, int bufferSize) {
     long framesPerMeasure = static_cast<long>(kSecondsPerMinute * sampleRate * beatsPerMeasure / tempo);
     _framesPerBeat = framesPerMeasure / _numerator;
     _generator.adjustBuffers(framesPerMeasure);
-    _pickupOffsetFrames = static_cast<long>(framesPerMeasure * _start);
     _slicePositionLFO.setFramesPerMeasure(framesPerMeasure);
+    _slicePositionFrames = static_cast<long>(framesPerMeasure * _slicePosition);
 }
 
-void Trigger::setSlice(double slice, IEnvelope& envelope) {
+void Trigger::setSliceLength(double value, IEnvelope& envelope) {
     assert(_framesPerBeat > 0);
     assert(_framesPerBeat > 0);
     
     long framesPerMeasure = _framesPerBeat * _denominator;
     long framesPerStep { static_cast<long>(_step * framesPerMeasure) };
-    _framesPerSlice = framesPerMeasure * slice * 2 * _step;
+    _framesPerSlice = framesPerMeasure * value * 2 * _step;
     envelope.setFramesPerCrossfade(std::max(_framesPerSlice - framesPerStep, long(0)));
 }
 
