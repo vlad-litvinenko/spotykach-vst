@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		540D2905286A3A1C00922601 /* ILFO.h in Headers */ = {isa = PBXBuildFile; fileRef = 54E3855B28624C8F0086E4BC /* ILFO.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		540EC1DD27F4E94200D799D4 /* Engine.h in Headers */ = {isa = PBXBuildFile; fileRef = 540EC1DC27F4E94200D799D4 /* Engine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5421099927CBC227009858C7 /* Parameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 5421099827CBC227009858C7 /* Parameters.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		54362FA927F86C96009D123C /* Engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54362FA827F86C96009D123C /* Engine.cpp */; };
@@ -99,6 +100,7 @@
 		54E3855C28624DC80086E4BC /* LFO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFO.h; sourceTree = "<group>"; };
 		54E3855F286252EC0086E4BC /* LFO.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LFO.cpp; sourceTree = "<group>"; };
 		54E385612862550C0086E4BC /* LFOTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LFOTest.cpp; sourceTree = "<group>"; };
+		54F9E362286B5416006AA970 /* TestLFO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestLFO.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				54639394283434FC00EA0196 /* GeneratorTest.cpp */,
 				54E385612862550C0086E4BC /* LFOTest.cpp */,
 				545CCA7327E239F60070EAEA /* TestGenerator.h */,
+				54F9E362286B5416006AA970 /* TestLFO.h */,
 				544FF2D027E246DA0040BF1A /* TestSource.h */,
 				5465B13327F6324E00A7B3CC /* TestEnvelope.h */,
 			);
@@ -220,6 +223,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				540D2905286A3A1C00922601 /* ILFO.h in Headers */,
 				540EC1DD27F4E94200D799D4 /* Engine.h in Headers */,
 				54C8B82227C239EB000D1412 /* Envelope.h in Headers */,
 				54C8B82327C239EB000D1412 /* Trigger.h in Headers */,
