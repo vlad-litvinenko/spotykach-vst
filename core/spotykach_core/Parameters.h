@@ -48,7 +48,10 @@ namespace spotykach {
         kP_Shift            = 13,
         kP_Cascade          = 14,
         kP_RetriggerChance  = 15,
-        kP_Freeze           = 16
+        kP_Freeze           = 16,
+        kP_PosLFOIsOn       = 17,
+        kP_PosLFOAmplitude  = 18,
+        kP_PosLFORate       = 19
     };
 
     enum GlobalParam {

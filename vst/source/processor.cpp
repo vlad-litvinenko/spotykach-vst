@@ -17,7 +17,6 @@
 using namespace Steinberg;
 using namespace Vst;
 
-
 namespace vlly {
 
 //------------------------------------------------------------------------
@@ -195,14 +194,14 @@ void SpotykachProcessor::readParameters(IParameterChanges& ipc) {
                 case spotykach::kP_Slice_Start: {
                     ParamValue aStart;
                     get(aStart, queue, index);
-                    e.setStart(aStart);
+                    e.setSlicePosition(aStart);
                     changes[engineIndex] = 1;
                     break;
                 }
                 case spotykach::kP_Slice_Length: {
                     ParamValue aSlice;
                     get(aSlice, queue, index);
-                    e.setSlice(aSlice);
+                    e.setSliceLength(aSlice);
                     changes[engineIndex] = 1;
                     break;
                 }
@@ -224,6 +223,24 @@ void SpotykachProcessor::readParameters(IParameterChanges& ipc) {
                     ParamValue aChance;
                     get(aChance, queue, index);
                     e.setRetriggerChance(aChance > 0.5 ? 0. : 1.);
+                    break;
+                }
+                case spotykach::kP_PosLFOAmplitude: {
+                    ParamValue aPosLFOAmp;
+                    get(aPosLFOAmp, queue, index);
+                    e.setSlicePositionLFOAmplitude(aPosLFOAmp);
+                    break;
+                }
+                case spotykach::kP_PosLFORate: {
+                    ParamValue aPosLFORate;
+                    get(aPosLFORate, queue, index);
+                    e.setSlicePositionLFORate(aPosLFORate);
+                    break;
+                }
+                case spotykach::kP_PosLFOIsOn: {
+                    ParamValue aPosLFOIsOn;
+                    get(aPosLFOIsOn, queue, index);
+                    e.setSlicePositionLFOIsOn(aPosLFOIsOn > 0.5);
                     break;
                 }
                 case spotykach::kP_Declick: {
@@ -410,11 +427,11 @@ tresult PLUGIN_API SpotykachProcessor::setState (IBStream* state)
         
         double start = 0;
         if (!streamer.readDouble(start)) return kResultFalse;
-        e.setStart(start);
+        e.setSlicePosition(start);
         
         double slice = 0;
         if (!streamer.readDouble(slice)) return kResultFalse;
-        e.setSlice(slice);
+        e.setSliceLength(slice);
         
         double direction = 0;
         if (!streamer.readDouble(direction)) return kResultFalse;
@@ -431,6 +448,19 @@ tresult PLUGIN_API SpotykachProcessor::setState (IBStream* state)
         double retriggerChance = 0;
         if (!streamer.readDouble(retriggerChance)) return kResultFalse;
         e.setRetriggerChance(retriggerChance);
+        
+        
+        double positionLFOAmp = 0;
+        if (!streamer.readDouble(positionLFOAmp)) return kResultFalse;
+        e.setSlicePositionLFOAmplitude(positionLFOAmp);
+        
+        double positionLFORate = 0;
+        if (!streamer.readDouble(positionLFORate)) return kResultFalse;
+        e.setSlicePositionLFORate(positionLFORate);
+        
+        bool positionLFOIsOn = false;
+        if (!streamer.readBool(positionLFOIsOn)) return kResultFalse;
+        e.setSlicePositionLFOIsOn(positionLFOIsOn);
         
         bool on = false;
         if (!streamer.readBool(on)) return kResultFalse;
@@ -478,16 +508,18 @@ tresult PLUGIN_API SpotykachProcessor::getState (IBStream* state) {
         streamer.writeDouble(r.grid);
         streamer.writeDouble(r.shift);
         streamer.writeDouble(r.stepGridPosition);
-        streamer.writeDouble(r.start);
-        streamer.writeDouble(r.slice);
+        streamer.writeDouble(r.slicePosition);
+        streamer.writeDouble(r.sliceLength);
         streamer.writeDouble(r.direction);
         streamer.writeDouble(r.repeats);
         streamer.writeDouble(r.retrigger);
         streamer.writeDouble(r.retriggerChance);
+        streamer.writeDouble(r.posLFOAmp);
+        streamer.writeDouble(r.posLFORate);
+        streamer.writeBool(r.posLFOIsOn);
         streamer.writeBool(r.on);
         streamer.writeBool(r.declick);
         streamer.writeBool(r.frozen);
-        
         streamer.writeDouble(cr.vol[i]);
         streamer.writeBool(cr.cascade[i]);
         streamer.writeBool(cr.ownBus[i]);

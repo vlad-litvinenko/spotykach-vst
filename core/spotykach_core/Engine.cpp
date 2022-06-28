@@ -45,9 +45,9 @@ Engine::Engine(): _tempo(0), _step(0.125), _grid(kGrid_Even)
     setIsOn(_raw.on);
     setDeclick(_raw.declick);
     setRetriggerChance(_raw.retriggerChance);
+    setSlicePositionLFOAmplitude(_raw.posLFOAmp);
+    setSlicePositionLFORate(_raw.posLFORate);
     setSlicePositionLFOIsOn(_raw.posLFOIsOn);
-    setSlicePositionLFOAmp(_raw.posLFOAmp);
-    setSlicePositionLFOPeriod(_raw.posLFOPeriod);
     
     _trigger->prepareMeterPattern(_step, 0, 4, 4);
 }
@@ -155,14 +155,14 @@ void Engine::setSlicePositionLFOIsOn(bool isOn) {
     _slicePositionLFO->setIsOn(isOn);
 }
 
-void Engine::setSlicePositionLFOAmp(double value) {
+void Engine::setSlicePositionLFOAmplitude(double value) {
     _raw.posLFOAmp = value;
     _slicePositionLFO->setAmplitude(value);
 }
 
-void Engine::setSlicePositionLFOPeriod(double value) {
-    _raw.posLFOPeriod = value;
-    _slicePositionLFO->setPeriod(value);
+void Engine::setSlicePositionLFORate(double value) {
+    _raw.posLFORate = value;
+    _slicePositionLFO->setPeriod(1. - value);
 }
 
 void Engine::setDeclick(bool declick) {
