@@ -15,8 +15,16 @@ inline float mod(T a, T b) {
 
 LFO::LFO() {}
 
+void LFO::setAmplitude(double amplitude) {
+    _amp = 2 * amplitude;
+}
+
 void LFO::setPeriod(double value) {
     _period = value;
+}
+
+void LFO::setCurrentBeat(double value) {
+    _currentBeat = value;
 }
 
 void LFO::setFramesPerMeasure(long framesPerMeasure) {
@@ -24,9 +32,9 @@ void LFO::setFramesPerMeasure(long framesPerMeasure) {
     _framesPerBeat = _framesPerMeasure / 4;
 }
 
-float LFO::triangleValueAt(double beat, int frame) {
+float LFO::triangleValueAt(int frame) {
     long fp = _framesPerMeasure * _period / 2;
-    double fraction = beat - int(beat / (4 * _period)) * (4 * _period);
+    double fraction = _currentBeat - int(_currentBeat / (4 * _period)) * (4 * _period);
     long fphase = static_cast<long>(fraction * _framesPerBeat + frame);
     return (_amp / fp) * (fp - std::abs(mod(fphase - fp, 2 * fp) - fp)) - _amp / 2;
 }

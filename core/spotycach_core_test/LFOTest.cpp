@@ -39,27 +39,63 @@ protected:
         _lfo->setFramesPerMeasure(88200);
         _lfo->setPeriod(0.25);
         
-        EXPECT_EQ(_lfo->triangleValueAt(0, 0), 1.);
-        EXPECT_EQ(_round(_lfo->triangleValueAt(0.125, 0)), 0.5);
-        EXPECT_EQ(_round(_lfo->triangleValueAt(0.25, 0)), 0);
-        EXPECT_EQ(_lfo->triangleValueAt(0.5, 0), -1.);
-        EXPECT_EQ(_round(_lfo->triangleValueAt(0.75, 0)), 0);
-        EXPECT_EQ(_lfo->triangleValueAt(1.0, 0), 1.);
+        _lfo->setCurrentBeat(0);
+        EXPECT_EQ(_lfo->triangleValueAt(0), 1.);
+        
+        _lfo->setCurrentBeat(0.125);
+        EXPECT_EQ(_round(_lfo->triangleValueAt(0)), 0.5);
+        
+        _lfo->setCurrentBeat(0.25);
+        EXPECT_EQ(_round(_lfo->triangleValueAt(0)), 0);
+        
+        _lfo->setCurrentBeat(0.5);
+        EXPECT_EQ(_lfo->triangleValueAt(0), -1.);
+        
+        _lfo->setCurrentBeat(0.75);
+        EXPECT_EQ(_round(_lfo->triangleValueAt(0)), 0);
+        
+        _lfo->setCurrentBeat(1.0);
+        EXPECT_EQ(_lfo->triangleValueAt(0), 1.);
     }
     
     void doTestTriangleDot8th() {
         _lfo->setFramesPerMeasure(88200);
         _lfo->setPeriod(0.1875);
         
-        EXPECT_EQ(_lfo->triangleValueAt(0, 0), 1.);
-        EXPECT_EQ(_round(_lfo->triangleValueAt(0.1875, 0)), 0);
-        EXPECT_EQ(_lfo->triangleValueAt(0.375, 0), -1);
-        EXPECT_EQ(_round(_lfo->triangleValueAt(0.5625, 0)), 0);
-        EXPECT_EQ(_lfo->triangleValueAt(0.75, 0), 1.);
+        _lfo->setCurrentBeat(0);
+        EXPECT_EQ(_lfo->triangleValueAt(0), 1.);
+        
+        _lfo->setCurrentBeat(0.1875);
+        EXPECT_EQ(_round(_lfo->triangleValueAt(0)), 0);
+        
+        _lfo->setCurrentBeat(0.375);
+        EXPECT_EQ(_lfo->triangleValueAt(0), -1);
+        
+        _lfo->setCurrentBeat(0.5625);
+        EXPECT_EQ(_round(_lfo->triangleValueAt(0)), 0);
+        
+        _lfo->setCurrentBeat(0.75);
+        EXPECT_EQ(_lfo->triangleValueAt(0), 1.);
+    }
+    
+    void doRunThrough() {
+        _lfo->setFramesPerMeasure(88200);
+        _lfo->setPeriod(0.5);
+        double beatIncrement = 512. / 88200;
+        double beat = 0;
+        while (beat < 2) {
+            _lfo->setCurrentBeat(beat);
+            printf("############ %f ", beat);
+            for (auto f = 0; f < 512; f++) {
+                printf("%f\n", _lfo->triangleValueAt(f));
+            }
+            beat += beatIncrement;
+        }
     }
         
 };
 
 TEST_F(LFOTest, triangle4th) { doTestTriangle4th(); }
 TEST_F(LFOTest, triangleDot8th) { doTestTriangleDot8th(); }
+//TEST_F(LFOTest, runThrough) { doRunThrough(); }
 
