@@ -47,7 +47,6 @@ Engine::Engine(): _tempo(0), _step(0.125), _grid(kGrid_Even)
     setRetriggerChance(_raw.retriggerChance);
     setSlicePositionLFOAmplitude(_raw.posLFOAmp);
     setSlicePositionLFORate(_raw.posLFORate);
-    setSlicePositionLFOIsOn(_raw.posLFOIsOn);
     
     _trigger->prepareMeterPattern(_step, 0, 4, 4);
 }
@@ -148,11 +147,6 @@ void Engine::setRetrigger(double normVal) {
 void Engine::setRetriggerChance(bool value) {
     _raw.retriggerChance = value;
     _trigger->setRetriggerChance(value);
-}
-
-void Engine::setSlicePositionLFOIsOn(bool isOn) {
-    _raw.posLFOIsOn = isOn;
-    _slicePositionLFO->setIsOn(isOn);
 }
 
 void Engine::setSlicePositionLFOAmplitude(double value) {

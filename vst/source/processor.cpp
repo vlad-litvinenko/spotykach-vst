@@ -237,12 +237,6 @@ void SpotykachProcessor::readParameters(IParameterChanges& ipc) {
                     e.setSlicePositionLFORate(aPosLFORate);
                     break;
                 }
-                case spotykach::kP_PosLFOIsOn: {
-                    ParamValue aPosLFOIsOn;
-                    get(aPosLFOIsOn, queue, index);
-                    e.setSlicePositionLFOIsOn(aPosLFOIsOn > 0.5);
-                    break;
-                }
                 case spotykach::kP_Declick: {
                     ParamValue aDeclick;
                     get(aDeclick, queue, index);
@@ -458,10 +452,6 @@ tresult PLUGIN_API SpotykachProcessor::setState (IBStream* state)
         if (!streamer.readDouble(positionLFORate)) return kResultFalse;
         e.setSlicePositionLFORate(positionLFORate);
         
-        bool positionLFOIsOn = false;
-        if (!streamer.readBool(positionLFOIsOn)) return kResultFalse;
-        e.setSlicePositionLFOIsOn(positionLFOIsOn);
-        
         bool on = false;
         if (!streamer.readBool(on)) return kResultFalse;
         e.setIsOn(on);
@@ -516,7 +506,6 @@ tresult PLUGIN_API SpotykachProcessor::getState (IBStream* state) {
         streamer.writeDouble(r.retriggerChance);
         streamer.writeDouble(r.posLFOAmp);
         streamer.writeDouble(r.posLFORate);
-        streamer.writeBool(r.posLFOIsOn);
         streamer.writeBool(r.on);
         streamer.writeBool(r.declick);
         streamer.writeBool(r.frozen);

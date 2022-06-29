@@ -20,10 +20,6 @@ inline float mod(T a, T b) {
 
 LFO::LFO() {}
 
-void LFO::setIsOn(bool value) {
-    _isOn = value;
-}
-
 void LFO::setAmplitude(double amplitude) {
     _amp = 2 * amplitude;
 }

@@ -14,8 +14,7 @@ class LFO: public ILFO {
 public:
     LFO();
     
-    bool isOn() override { return _isOn; };
-    void setIsOn(bool) override;
+    double amplitude() override { return _amp; }
     void setAmplitude(double) override;
     void setPeriod(double) override;
     void setCurrentBeat(double) override;

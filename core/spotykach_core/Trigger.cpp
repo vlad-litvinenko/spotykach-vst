@@ -162,7 +162,7 @@ void Trigger::schedule(double currentBeat, bool isLaunch) {
     }
     double distance { nextPoint >= normalisedBeat ? nextPoint - normalisedBeat : _beatsPerPattern };
     _framesTillTrigger = distance * _framesPerBeat;
-    if (_slicePositionLFO.isOn()) _slicePositionLFO.setCurrentBeat(currentBeat - static_cast<int>(currentBeat / _numerator) * _numerator);
+    if (_slicePositionLFO.amplitude() > 0) _slicePositionLFO.setCurrentBeat(currentBeat - static_cast<int>(currentBeat / _numerator) * _numerator);
     _currentFrame = 0;
     _scheduled = true;
 }
@@ -180,7 +180,7 @@ void Trigger::next(bool engaged) {
         }
         if (engaged && _nextPointIndex < _repeats) {
             auto sliceOffset = _slicePositionFrames;
-            if (_slicePositionLFO.isOn()) {
+            if (_slicePositionLFO.amplitude() > 0) {
                 auto lfoOffset = _slicePositionLFO.triangleValueAt(static_cast<int>(_currentFrame));
                 sliceOffset += lfoOffset * _framesPerBeat * _numerator;
                 if (sliceOffset < 0) sliceOffset = 0;

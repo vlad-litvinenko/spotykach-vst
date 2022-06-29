@@ -38,9 +38,8 @@ struct RawParameters {
     double repeats          = 8;
     double retrigger        = 0;
     double retriggerChance  = 1.0;
-    double posLFOAmp        = 0.5;
+    double posLFOAmp        = 0.0;
     double posLFORate       = 0.75;
-    bool posLFOIsOn         = false;
     bool on                 = false;
     bool declick            = false;
     bool frozen             = false;
@@ -73,7 +72,6 @@ public:
     void setRetrigger(double retrigger);
     void setRetriggerChance(bool value);
     
-    void setSlicePositionLFOIsOn(bool isOn);
     void setSlicePositionLFOAmplitude(double value);
     void setSlicePositionLFORate(double value);
     
