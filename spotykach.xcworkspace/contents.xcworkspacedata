@@ -5,7 +5,7 @@
       location = "group:core/spotykach_core.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:vst/build/spotykach_vst.xcodeproj">
+      location = "group:vst/spotykach_vst.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:au/spotykach_au.xcodeproj">
