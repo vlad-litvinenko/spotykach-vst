@@ -1,7 +1,21 @@
 # spotykach
-Quirky sound machine
+quirky sound machine
 VST3 Mac
 
-https://youtu.be/X7VIyEVQq0E
+https://www.instagram.com/p/CfbAkIvvhju/
 
-The plugin logic is inside spotycach_core static lib.
+### Build VST
+
+- open spotykach.xcworkspace
+- the `spotykach_vst` project assumes `vst3sdk` folder is located at the same level with worksapce folder, i.e.:
+```
+__
+  |-spotykach
+  |-vst3sdk
+  |-....
+```
+- in file [vst/CMakeLists.txt](https://github.com/vlad-litvinenko/spotykach/blob/main/vst/CMakeLists.txt) batch-replace occurences of `/Users/vlly/DSP/` with your path
+- in file [vst/build/CMakeCache.txt](https://github.com/vlad-litvinenko/spotykach/blob/main/vst/build/CMakeCache.txt) batch-replace occurences of `/Users/vlly/DSP/` with your path
+- build `spotykach_core` target first as it contains plugin logic
+- build `spotykach_vst` target
+- In case build complanes `.../vst/build/CMakeFiles/spotykach_vst.dir/Info.plist` rebuild `spotykach_vst` again.
