@@ -16,6 +16,6 @@ __
 ```
 - in file [vst/CMakeLists.txt](https://github.com/vlad-litvinenko/spotykach/blob/main/vst/CMakeLists.txt) batch-replace occurences of `/Users/vlly/DSP/` with your path
 - in file [vst/build/CMakeCache.txt](https://github.com/vlad-litvinenko/spotykach/blob/main/vst/build/CMakeCache.txt) batch-replace occurences of `/Users/vlly/DSP/` with your path
-- build `spotykach_core` target first as it contains plugin logic
-- build `spotykach_vst` target
+- build `spotykach_core` target in `spotykach_core` project first as it contains plugin logic
+- build `spotykach_vst` target in `spotykach_vst` project
 - In case build complanes `.../vst/build/CMakeFiles/spotykach_vst.dir/Info.plist` rebuild `spotykach_vst` again.
