@@ -1,0 +1,717 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		2F1D15A5B580446BB235A2F0 /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 5EB668CAE58845E0985AC250 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				F68635DE9DB4E13DDC2551A1 /* Generate CMakeFiles/ALL_BUILD */,
+			);
+			dependencies = (
+				63FF5ADF61C04F9689280715 /* PBXTargetDependency */,
+				D82F7AD94C1948849C95D3C0 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+		5EB013D06C744C339719F05E /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 7245A7FF846A4A898C8896A6 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				B53E1095F3095C3BA3D7E357 /* Generate CMakeFiles/ZERO_CHECK */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		0466BF88E57A4C7DB06D3BC8 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstcomponent.h */ = {isa = PBXBuildFile; fileRef = 57B32A3737394231BF86E818 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstcomponent.h */; };
+		09C39AEEE9F84F20B8873783 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstmessage.h */ = {isa = PBXBuildFile; fileRef = 53FD42EE5D3D47AFB221D2EE /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstmessage.h */; };
+		0D061043B77041E68F364EF1 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/funknownimpl.h */ = {isa = PBXBuildFile; fileRef = 0A6A8D26A0E541E089D9F59B /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/funknownimpl.h */; };
+		0E82CEEB69FC4608807CF649 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivsteditcontroller.h */ = {isa = PBXBuildFile; fileRef = 4FF8377D561E459587EDEDA9 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivsteditcontroller.h */; };
+		0F3599B6BCD541E78D36F66C /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ustring.cpp */ = {isa = PBXBuildFile; fileRef = 914E348C9F4C403B88963607 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ustring.cpp */; };
+		14C4836AB14A4E7DA5393E35 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstaudioprocessor.h */ = {isa = PBXBuildFile; fileRef = 344733F442B441459875EC44 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstaudioprocessor.h */; };
+		191D47D00A9047DAB63C6199 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/keycodes.h */ = {isa = PBXBuildFile; fileRef = EE1151B3CD3C4CEE82DDAA03 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/keycodes.h */; };
+		1995BE2CA83A4D6693643387 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/vsttypes.h */ = {isa = PBXBuildFile; fileRef = 6CADEAB8B15341999ADE1044 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/vsttypes.h */; };
+		1D51AA0F4F894951AC58C297 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstphysicalui.h */ = {isa = PBXBuildFile; fileRef = 787F4056098843DE8D5013D7 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstphysicalui.h */; };
+		1E14A0B7A69F46709AFB73DF /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/iupdatehandler.h */ = {isa = PBXBuildFile; fileRef = E650DF52DECF4BFDA1F68FD1 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/iupdatehandler.h */; };
+		33C1D20D3DB34DFBA1ED2068 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/smartpointer.h */ = {isa = PBXBuildFile; fileRef = 76EB5FF2B27843679BF1DBDC /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/smartpointer.h */; };
+		33E13DB99B244ED8AFB9E673 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstprocesscontext.h */ = {isa = PBXBuildFile; fileRef = FFCCAACAA303486DB7A0CFE5 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstprocesscontext.h */; };
+		36FAA2543BC6414D958276BD /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/funknown.cpp */ = {isa = PBXBuildFile; fileRef = 6E78CE48358B41FC8ECA4320 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/funknown.cpp */; };
+		3D7F34F3B6674CF2AED4E799 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/vstpshpack4.h */ = {isa = PBXBuildFile; fileRef = 20EFCC5E78B54052BF07583A /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/vstpshpack4.h */; };
+		3E54A2C879D74E8096813FC4 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ibstream.h */ = {isa = PBXBuildFile; fileRef = AC35CB11B9FB46D1ABC68DFC /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ibstream.h */; };
+		3FF72D51131C40A2A6A0A2CA /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/fvariant.h */ = {isa = PBXBuildFile; fileRef = 84ADD3D8493B42469E9331DE /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/fvariant.h */; };
+		4767D50271C94554B02B21BD /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/futils.h */ = {isa = PBXBuildFile; fileRef = A33844AA00C0417AA3598A65 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/futils.h */; };
+		4C7EB4EC037C432BBC634D40 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/geoconstants.h */ = {isa = PBXBuildFile; fileRef = 90B56B0463A04E8D9982C2D5 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/geoconstants.h */; };
+		5697F8505014415DBEBB7598 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstrepresentation.h */ = {isa = PBXBuildFile; fileRef = D8485832D5E64886AC9C447B /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstrepresentation.h */; };
+		56D52F33B37A4AF1889ACD53 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/coreiids.cpp */ = {isa = PBXBuildFile; fileRef = 4501A37FE5094AD2B788510C /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/coreiids.cpp */; };
+		5A2B5F2D31B646FCA8131DC0 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ipluginbase.h */ = {isa = PBXBuildFile; fileRef = C0DE16B21EF947F5B73A999E /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ipluginbase.h */; };
+		68E642BFB75447CA902966FF /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstpluginterfacesupport.h */ = {isa = PBXBuildFile; fileRef = 7C9081C685C8454ABCA28E26 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstpluginterfacesupport.h */; };
+		69E495069ABB4085A68CF7CB /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstprefetchablesupport.h */ = {isa = PBXBuildFile; fileRef = EA98AA6ACC1247268599B678 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstprefetchablesupport.h */; };
+		7A9ABAF3CDD3441FB78696E4 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstattributes.h */ = {isa = PBXBuildFile; fileRef = FBB1E06761134BBCAA6B2220 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstattributes.h */; };
+		7AD3D7A081BD4D36A99AA019 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ustring.h */ = {isa = PBXBuildFile; fileRef = A02386EC94B042769EC84BAF /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ustring.h */; };
+		7B5B5B71CABC4470B28FF163 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/icloneable.h */ = {isa = PBXBuildFile; fileRef = D18AE8470E294EF4A135EE26 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/icloneable.h */; };
+		7DAE99149BB044BCBFB5B19A /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/conststringtable.cpp */ = {isa = PBXBuildFile; fileRef = 4DBDC6ABD0FC4E8093F8CC6C /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/conststringtable.cpp */; };
+		8F15BC4E6B484FD8ADF56916 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ftypes.h */ = {isa = PBXBuildFile; fileRef = C74436F725E44A68B19BCD02 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ftypes.h */; };
+		8F8BFF86CFCF492995068E94 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstparameterfunctionname.h */ = {isa = PBXBuildFile; fileRef = FF5F84BEC07E4144B3CA23AE /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstparameterfunctionname.h */; };
+		8F93D53C946F46B78A911BAA /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstcontextmenu.h */ = {isa = PBXBuildFile; fileRef = E3DBD6E9A5FC438B955B2FBD /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstcontextmenu.h */; };
+		92D3610FA299409DBE117A1B /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ipersistent.h */ = {isa = PBXBuildFile; fileRef = C08509457C704DC2BA59516B /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ipersistent.h */; };
+		93498E866B4C48D5A4B2DD65 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/gui/iplugviewcontentscalesupport.h */ = {isa = PBXBuildFile; fileRef = DCD548A847AE4EC89637DB48 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/gui/iplugviewcontentscalesupport.h */; };
+		978C5CEEB78B4058AEC6469F /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstparameterchanges.h */ = {isa = PBXBuildFile; fileRef = 46F3F0C11CE44561AF13E47E /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstparameterchanges.h */; };
+		9D0F3BD7583F4E3D81B67AC5 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/falignpush.h */ = {isa = PBXBuildFile; fileRef = F323CFE4E3344CB7AF61154A /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/falignpush.h */; };
+		A231E670E0044E9086D9B621 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstunits.h */ = {isa = PBXBuildFile; fileRef = 7F07A6841EFE4146BAC4222F /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstunits.h */; };
+		A28A5B0E51A54251B3388657 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivsthostapplication.h */ = {isa = PBXBuildFile; fileRef = B2298F6D737C43238C28FFA5 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivsthostapplication.h */; };
+		A308F1C921E147578A96E9D6 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstautomationstate.h */ = {isa = PBXBuildFile; fileRef = 76A822FE32D94C83B2953FBA /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstautomationstate.h */; };
+		A3EF31B47A1E4E47B90C44DA /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/funknown.h */ = {isa = PBXBuildFile; fileRef = 1B2B4405D215464CA155441A /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/funknown.h */; };
+		A6380346A64148BEBFC07ED2 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstevents.h */ = {isa = PBXBuildFile; fileRef = 8C559B57B2F74DC0B8173036 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstevents.h */; };
+		B389744C06F54AC9A014B451 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstplugview.h */ = {isa = PBXBuildFile; fileRef = 1980943F95034205BDD78D06 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstplugview.h */; };
+		B956F031A4D141C48E80D962 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/falignpop.h */ = {isa = PBXBuildFile; fileRef = 670F1E13F26B4EFCADE76893 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/falignpop.h */; };
+		B97F77A1450941419FB0AB17 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/typesizecheck.h */ = {isa = PBXBuildFile; fileRef = 04D392A1C0384CAE8C58D6DB /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/typesizecheck.h */; };
+		BC6187ED83C944749C7246E7 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstmidicontrollers.h */ = {isa = PBXBuildFile; fileRef = 593432C5ABCF4C52BB9ADA54 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstmidicontrollers.h */; };
+		CCC1F886112F49DBA259C6D0 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ucolorspec.h */ = {isa = PBXBuildFile; fileRef = 3F07A98700304012A631EF1A /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ucolorspec.h */; };
+		D30B8ACB4FBB4E1E8796F6C1 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/pluginbasefwd.h */ = {isa = PBXBuildFile; fileRef = 2698850F1F224B34A45E4FA0 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/pluginbasefwd.h */; };
+		D30D921005D74565B12E7200 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/conststringtable.h */ = {isa = PBXBuildFile; fileRef = 7911EE381B974BE3AE7F512E /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/conststringtable.h */; };
+		D338FCEC41634AD5B2E30CFC /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstnoteexpression.h */ = {isa = PBXBuildFile; fileRef = C27E4F8A1B9144158AC0C7DF /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstnoteexpression.h */; };
+		D445E29107AE4FDD88D071BC /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/fstrdefs.h */ = {isa = PBXBuildFile; fileRef = 960E64AB3E1C41D4854E2E8C /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/fstrdefs.h */; };
+		DFC18024D7584ECD847E8153 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstmidilearn.h */ = {isa = PBXBuildFile; fileRef = 37298F346F6C433487BB644E /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstmidilearn.h */; };
+		DFFEBEB099DB497D9A354B2F /* /Users/vlly/DSP/vst3sdk/pluginterfaces/gui/iplugview.h */ = {isa = PBXBuildFile; fileRef = C700861957C94AD3BE44F7BE /* /Users/vlly/DSP/vst3sdk/pluginterfaces/gui/iplugview.h */; };
+		E17763DD48974F1786528105 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ierrorcontext.h */ = {isa = PBXBuildFile; fileRef = 461A074F28FA4915805ACE0A /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ierrorcontext.h */; };
+		E83C5FA196B94A2189A608DD /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/fplatform.h */ = {isa = PBXBuildFile; fileRef = DE37D1C00F044B7F940EE370 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/fplatform.h */; };
+		E934864CD2D04922B87A3C58 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstinterappaudio.h */ = {isa = PBXBuildFile; fileRef = 511771990A0A40B0AD29D7AA /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstinterappaudio.h */; };
+		EB391F8331FB46A19FFE4E41 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/vstspeaker.h */ = {isa = PBXBuildFile; fileRef = 298BC45B6FB14F0CB36ABB01 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/vstspeaker.h */; };
+		EEB67798E40742E988459DB4 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 0FE00F5F76E8489E933FB133 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/CMakeLists.txt */; };
+		F324A6B908E242D2B8CBA5B5 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/vstpresetkeys.h */ = {isa = PBXBuildFile; fileRef = 5ACF639C673C4739B1227E6A /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/vstpresetkeys.h */; };
+		F4B642D958EB485997BB6A04 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/istringresult.h */ = {isa = PBXBuildFile; fileRef = 897A1BB3F5664EC5B56A1C4C /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/istringresult.h */; };
+		F63CC8825C2B41EA98B6AE80 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstchannelcontextinfo.h */ = {isa = PBXBuildFile; fileRef = 10DD8946D0CF408F8CCCC2EA /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstchannelcontextinfo.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		706595938C524BAE8E0E574D /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		EEE899B97753480E9FAA99F5 /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		4D1A12CAF3354F1C9EC3C0A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 982672ED08F14D0C80EE9730 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EB013D06C744C339719F05E;
+			remoteInfo = ZERO_CHECK;
+		};
+		59D77FE6F9FA4069956408B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 982672ED08F14D0C80EE9730 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0A1097AFBAD94B91BF75EA42;
+			remoteInfo = pluginterfaces;
+		};
+		F3426424EF76424499DCDFE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 982672ED08F14D0C80EE9730 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EB013D06C744C339719F05E;
+			remoteInfo = ZERO_CHECK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04D392A1C0384CAE8C58D6DB /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/typesizecheck.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = typesizecheck.h; path = base/typesizecheck.h; sourceTree = SOURCE_ROOT; };
+		0A6A8D26A0E541E089D9F59B /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/funknownimpl.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = funknownimpl.h; path = base/funknownimpl.h; sourceTree = SOURCE_ROOT; };
+		0FE00F5F76E8489E933FB133 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		10DD8946D0CF408F8CCCC2EA /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstchannelcontextinfo.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivstchannelcontextinfo.h; path = vst/ivstchannelcontextinfo.h; sourceTree = SOURCE_ROOT; };
+		18A22032DF294154A1B90F0C /* /Users/vlly/DSP/vst3sdk/pluginterfaces/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		1980943F95034205BDD78D06 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstplugview.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivstplugview.h; path = vst/ivstplugview.h; sourceTree = SOURCE_ROOT; };
+		1B2B4405D215464CA155441A /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/funknown.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = funknown.h; path = base/funknown.h; sourceTree = SOURCE_ROOT; };
+		20EFCC5E78B54052BF07583A /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/vstpshpack4.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = vstpshpack4.h; path = vst/vstpshpack4.h; sourceTree = SOURCE_ROOT; };
+		2698850F1F224B34A45E4FA0 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/pluginbasefwd.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = pluginbasefwd.h; path = base/pluginbasefwd.h; sourceTree = SOURCE_ROOT; };
+		298BC45B6FB14F0CB36ABB01 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/vstspeaker.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = vstspeaker.h; path = vst/vstspeaker.h; sourceTree = SOURCE_ROOT; };
+		344733F442B441459875EC44 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstaudioprocessor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivstaudioprocessor.h; path = vst/ivstaudioprocessor.h; sourceTree = SOURCE_ROOT; };
+		37298F346F6C433487BB644E /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstmidilearn.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivstmidilearn.h; path = vst/ivstmidilearn.h; sourceTree = SOURCE_ROOT; };
+		3F07A98700304012A631EF1A /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ucolorspec.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ucolorspec.h; path = base/ucolorspec.h; sourceTree = SOURCE_ROOT; };
+		4501A37FE5094AD2B788510C /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/coreiids.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = coreiids.cpp; path = base/coreiids.cpp; sourceTree = SOURCE_ROOT; };
+		461A074F28FA4915805ACE0A /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ierrorcontext.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ierrorcontext.h; path = base/ierrorcontext.h; sourceTree = SOURCE_ROOT; };
+		46F3F0C11CE44561AF13E47E /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstparameterchanges.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivstparameterchanges.h; path = vst/ivstparameterchanges.h; sourceTree = SOURCE_ROOT; };
+		4DBDC6ABD0FC4E8093F8CC6C /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/conststringtable.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = conststringtable.cpp; path = base/conststringtable.cpp; sourceTree = SOURCE_ROOT; };
+		4FF8377D561E459587EDEDA9 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivsteditcontroller.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivsteditcontroller.h; path = vst/ivsteditcontroller.h; sourceTree = SOURCE_ROOT; };
+		511771990A0A40B0AD29D7AA /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstinterappaudio.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivstinterappaudio.h; path = vst/ivstinterappaudio.h; sourceTree = SOURCE_ROOT; };
+		53FD42EE5D3D47AFB221D2EE /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstmessage.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivstmessage.h; path = vst/ivstmessage.h; sourceTree = SOURCE_ROOT; };
+		57B32A3737394231BF86E818 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstcomponent.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivstcomponent.h; path = vst/ivstcomponent.h; sourceTree = SOURCE_ROOT; };
+		593432C5ABCF4C52BB9ADA54 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstmidicontrollers.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivstmidicontrollers.h; path = vst/ivstmidicontrollers.h; sourceTree = SOURCE_ROOT; };
+		5ACF639C673C4739B1227E6A /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/vstpresetkeys.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = vstpresetkeys.h; path = vst/vstpresetkeys.h; sourceTree = SOURCE_ROOT; };
+		670F1E13F26B4EFCADE76893 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/falignpop.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = falignpop.h; path = base/falignpop.h; sourceTree = SOURCE_ROOT; };
+		6CADEAB8B15341999ADE1044 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/vsttypes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = vsttypes.h; path = vst/vsttypes.h; sourceTree = SOURCE_ROOT; };
+		6E78CE48358B41FC8ECA4320 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/funknown.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = funknown.cpp; path = base/funknown.cpp; sourceTree = SOURCE_ROOT; };
+		76A822FE32D94C83B2953FBA /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstautomationstate.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivstautomationstate.h; path = vst/ivstautomationstate.h; sourceTree = SOURCE_ROOT; };
+		76EB5FF2B27843679BF1DBDC /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/smartpointer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = smartpointer.h; path = base/smartpointer.h; sourceTree = SOURCE_ROOT; };
+		787F4056098843DE8D5013D7 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstphysicalui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivstphysicalui.h; path = vst/ivstphysicalui.h; sourceTree = SOURCE_ROOT; };
+		7911EE381B974BE3AE7F512E /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/conststringtable.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = conststringtable.h; path = base/conststringtable.h; sourceTree = SOURCE_ROOT; };
+		7C9081C685C8454ABCA28E26 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstpluginterfacesupport.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivstpluginterfacesupport.h; path = vst/ivstpluginterfacesupport.h; sourceTree = SOURCE_ROOT; };
+		7F07A6841EFE4146BAC4222F /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstunits.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivstunits.h; path = vst/ivstunits.h; sourceTree = SOURCE_ROOT; };
+		84ADD3D8493B42469E9331DE /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/fvariant.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = fvariant.h; path = base/fvariant.h; sourceTree = SOURCE_ROOT; };
+		897A1BB3F5664EC5B56A1C4C /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/istringresult.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = istringresult.h; path = base/istringresult.h; sourceTree = SOURCE_ROOT; };
+		8C559B57B2F74DC0B8173036 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstevents.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivstevents.h; path = vst/ivstevents.h; sourceTree = SOURCE_ROOT; };
+		90B56B0463A04E8D9982C2D5 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/geoconstants.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = geoconstants.h; path = base/geoconstants.h; sourceTree = SOURCE_ROOT; };
+		914E348C9F4C403B88963607 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ustring.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ustring.cpp; path = base/ustring.cpp; sourceTree = SOURCE_ROOT; };
+		92D70026D5104CB5A1B50EED /* pluginterfaces */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libpluginterfaces.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		960E64AB3E1C41D4854E2E8C /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/fstrdefs.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = fstrdefs.h; path = base/fstrdefs.h; sourceTree = SOURCE_ROOT; };
+		A02386EC94B042769EC84BAF /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ustring.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ustring.h; path = base/ustring.h; sourceTree = SOURCE_ROOT; };
+		A33844AA00C0417AA3598A65 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/futils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = futils.h; path = base/futils.h; sourceTree = SOURCE_ROOT; };
+		AC35CB11B9FB46D1ABC68DFC /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ibstream.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ibstream.h; path = base/ibstream.h; sourceTree = SOURCE_ROOT; };
+		B2298F6D737C43238C28FFA5 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivsthostapplication.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivsthostapplication.h; path = vst/ivsthostapplication.h; sourceTree = SOURCE_ROOT; };
+		C08509457C704DC2BA59516B /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ipersistent.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ipersistent.h; path = base/ipersistent.h; sourceTree = SOURCE_ROOT; };
+		C0DE16B21EF947F5B73A999E /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ipluginbase.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ipluginbase.h; path = base/ipluginbase.h; sourceTree = SOURCE_ROOT; };
+		C27E4F8A1B9144158AC0C7DF /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstnoteexpression.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivstnoteexpression.h; path = vst/ivstnoteexpression.h; sourceTree = SOURCE_ROOT; };
+		C700861957C94AD3BE44F7BE /* /Users/vlly/DSP/vst3sdk/pluginterfaces/gui/iplugview.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = iplugview.h; path = gui/iplugview.h; sourceTree = SOURCE_ROOT; };
+		C74436F725E44A68B19BCD02 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ftypes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ftypes.h; path = base/ftypes.h; sourceTree = SOURCE_ROOT; };
+		D18AE8470E294EF4A135EE26 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/icloneable.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = icloneable.h; path = base/icloneable.h; sourceTree = SOURCE_ROOT; };
+		D8485832D5E64886AC9C447B /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstrepresentation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivstrepresentation.h; path = vst/ivstrepresentation.h; sourceTree = SOURCE_ROOT; };
+		DCD548A847AE4EC89637DB48 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/gui/iplugviewcontentscalesupport.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = iplugviewcontentscalesupport.h; path = gui/iplugviewcontentscalesupport.h; sourceTree = SOURCE_ROOT; };
+		DE37D1C00F044B7F940EE370 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/fplatform.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = fplatform.h; path = base/fplatform.h; sourceTree = SOURCE_ROOT; };
+		E3DBD6E9A5FC438B955B2FBD /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstcontextmenu.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivstcontextmenu.h; path = vst/ivstcontextmenu.h; sourceTree = SOURCE_ROOT; };
+		E650DF52DECF4BFDA1F68FD1 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/iupdatehandler.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = iupdatehandler.h; path = base/iupdatehandler.h; sourceTree = SOURCE_ROOT; };
+		EA98AA6ACC1247268599B678 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstprefetchablesupport.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivstprefetchablesupport.h; path = vst/ivstprefetchablesupport.h; sourceTree = SOURCE_ROOT; };
+		EE1151B3CD3C4CEE82DDAA03 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/keycodes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = keycodes.h; path = base/keycodes.h; sourceTree = SOURCE_ROOT; };
+		F323CFE4E3344CB7AF61154A /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/falignpush.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = falignpush.h; path = base/falignpush.h; sourceTree = SOURCE_ROOT; };
+		FBB1E06761134BBCAA6B2220 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstattributes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivstattributes.h; path = vst/ivstattributes.h; sourceTree = SOURCE_ROOT; };
+		FF5F84BEC07E4144B3CA23AE /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstparameterfunctionname.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivstparameterfunctionname.h; path = vst/ivstparameterfunctionname.h; sourceTree = SOURCE_ROOT; };
+		FFCCAACAA303486DB7A0CFE5 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstprocesscontext.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ivstprocesscontext.h; path = vst/ivstprocesscontext.h; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1F6A6B68BF9549239F82DFCE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		222613FF080945D39267EE76 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				28F22506F52141AFA76D29C2 /* pluginterfaces */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		28F22506F52141AFA76D29C2 /* pluginterfaces */ = {
+			isa = PBXGroup;
+			children = (
+				59D03C9A72064BDB8481AD4B /* Source Files */,
+				8781ABE30E5C42FD86D05FF2 /* Header Files */,
+				0FE00F5F76E8489E933FB133 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/CMakeLists.txt */,
+			);
+			name = pluginterfaces;
+			sourceTree = "<group>";
+		};
+		4A55D44B76184A27ADA0D6A6 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				5DD6ADE62CCE47FD8D687FA3 /* CMake Rules */,
+				18A22032DF294154A1B90F0C /* /Users/vlly/DSP/vst3sdk/pluginterfaces/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		59D03C9A72064BDB8481AD4B /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				4DBDC6ABD0FC4E8093F8CC6C /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/conststringtable.cpp */,
+				4501A37FE5094AD2B788510C /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/coreiids.cpp */,
+				6E78CE48358B41FC8ECA4320 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/funknown.cpp */,
+				914E348C9F4C403B88963607 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ustring.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		5A03B10384B34A0388FF672B = {
+			isa = PBXGroup;
+			children = (
+				222613FF080945D39267EE76 /* Libraries */,
+				4A55D44B76184A27ADA0D6A6 /* ALL_BUILD */,
+				72D5C78688084B8392269760 /* Products */,
+				EE64ABEDFB1141BA953275FB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5DD6ADE62CCE47FD8D687FA3 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		72D5C78688084B8392269760 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				92D70026D5104CB5A1B50EED /* pluginterfaces */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8781ABE30E5C42FD86D05FF2 /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				7911EE381B974BE3AE7F512E /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/conststringtable.h */,
+				670F1E13F26B4EFCADE76893 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/falignpop.h */,
+				F323CFE4E3344CB7AF61154A /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/falignpush.h */,
+				DE37D1C00F044B7F940EE370 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/fplatform.h */,
+				960E64AB3E1C41D4854E2E8C /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/fstrdefs.h */,
+				C74436F725E44A68B19BCD02 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ftypes.h */,
+				1B2B4405D215464CA155441A /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/funknown.h */,
+				0A6A8D26A0E541E089D9F59B /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/funknownimpl.h */,
+				A33844AA00C0417AA3598A65 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/futils.h */,
+				84ADD3D8493B42469E9331DE /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/fvariant.h */,
+				90B56B0463A04E8D9982C2D5 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/geoconstants.h */,
+				AC35CB11B9FB46D1ABC68DFC /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ibstream.h */,
+				D18AE8470E294EF4A135EE26 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/icloneable.h */,
+				461A074F28FA4915805ACE0A /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ierrorcontext.h */,
+				C08509457C704DC2BA59516B /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ipersistent.h */,
+				C0DE16B21EF947F5B73A999E /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ipluginbase.h */,
+				897A1BB3F5664EC5B56A1C4C /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/istringresult.h */,
+				E650DF52DECF4BFDA1F68FD1 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/iupdatehandler.h */,
+				EE1151B3CD3C4CEE82DDAA03 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/keycodes.h */,
+				2698850F1F224B34A45E4FA0 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/pluginbasefwd.h */,
+				76EB5FF2B27843679BF1DBDC /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/smartpointer.h */,
+				04D392A1C0384CAE8C58D6DB /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/typesizecheck.h */,
+				3F07A98700304012A631EF1A /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ucolorspec.h */,
+				A02386EC94B042769EC84BAF /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ustring.h */,
+				C700861957C94AD3BE44F7BE /* /Users/vlly/DSP/vst3sdk/pluginterfaces/gui/iplugview.h */,
+				DCD548A847AE4EC89637DB48 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/gui/iplugviewcontentscalesupport.h */,
+				FBB1E06761134BBCAA6B2220 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstattributes.h */,
+				344733F442B441459875EC44 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstaudioprocessor.h */,
+				76A822FE32D94C83B2953FBA /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstautomationstate.h */,
+				10DD8946D0CF408F8CCCC2EA /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstchannelcontextinfo.h */,
+				57B32A3737394231BF86E818 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstcomponent.h */,
+				E3DBD6E9A5FC438B955B2FBD /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstcontextmenu.h */,
+				4FF8377D561E459587EDEDA9 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivsteditcontroller.h */,
+				8C559B57B2F74DC0B8173036 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstevents.h */,
+				B2298F6D737C43238C28FFA5 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivsthostapplication.h */,
+				511771990A0A40B0AD29D7AA /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstinterappaudio.h */,
+				53FD42EE5D3D47AFB221D2EE /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstmessage.h */,
+				593432C5ABCF4C52BB9ADA54 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstmidicontrollers.h */,
+				37298F346F6C433487BB644E /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstmidilearn.h */,
+				C27E4F8A1B9144158AC0C7DF /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstnoteexpression.h */,
+				46F3F0C11CE44561AF13E47E /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstparameterchanges.h */,
+				FF5F84BEC07E4144B3CA23AE /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstparameterfunctionname.h */,
+				787F4056098843DE8D5013D7 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstphysicalui.h */,
+				7C9081C685C8454ABCA28E26 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstpluginterfacesupport.h */,
+				1980943F95034205BDD78D06 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstplugview.h */,
+				EA98AA6ACC1247268599B678 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstprefetchablesupport.h */,
+				FFCCAACAA303486DB7A0CFE5 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstprocesscontext.h */,
+				D8485832D5E64886AC9C447B /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstrepresentation.h */,
+				7F07A6841EFE4146BAC4222F /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/ivstunits.h */,
+				5ACF639C673C4739B1227E6A /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/vstpresetkeys.h */,
+				20EFCC5E78B54052BF07583A /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/vstpshpack4.h */,
+				298BC45B6FB14F0CB36ABB01 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/vstspeaker.h */,
+				6CADEAB8B15341999ADE1044 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/vst/vsttypes.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		EE64ABEDFB1141BA953275FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0A1097AFBAD94B91BF75EA42 /* pluginterfaces */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE7F4185C6BB42299CDA8F08 /* Build configuration list for PBXNativeTarget "pluginterfaces" */;
+			buildPhases = (
+				059563DA3DB842F9B0CDEE3C /* Sources */,
+				1F6A6B68BF9549239F82DFCE /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5D6ABDFD17B5499CB28796AB /* PBXTargetDependency */,
+			);
+			name = pluginterfaces;
+			productName = pluginterfaces;
+			productReference = 92D70026D5104CB5A1B50EED /* pluginterfaces */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		982672ED08F14D0C80EE9730 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1340;
+			};
+			buildConfigurationList = 8AE9D90D742F4E4286C8D138 /* Build configuration list for PBXProject "smtg_pluginterfaces" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				706595938C524BAE8E0E574D /* Debug */,
+				EEE899B97753480E9FAA99F5 /* Release */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = 5A03B10384B34A0388FF672B;
+			projectDirPath = /Users/vlly/DSP/vst3sdk/pluginterfaces;
+			projectRoot = "";
+			targets = (
+				2F1D15A5B580446BB235A2F0 /* ALL_BUILD */,
+				5EB013D06C744C339719F05E /* ZERO_CHECK */,
+				0A1097AFBAD94B91BF75EA42 /* pluginterfaces */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C0110FC8322DE7E50886E21 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		9B50530E35CC49C82C2FACCF = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		B53E1095F3095C3BA3D7E357 /* Generate CMakeFiles/ZERO_CHECK */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ZERO_CHECK";
+			outputPaths = (
+/Users/vlly/DSP/spotykach/vst/build/vst3sdk/pluginterfaces/CMakeFiles/ZERO_CHECK			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/vlly/DSP/spotykach/vst/build/vst3sdk/pluginterfaces
+  make -f /Users/vlly/DSP/spotykach/vst/build/vst3sdk/pluginterfaces/CMakeScripts/ReRunCMake.make
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/vlly/DSP/spotykach/vst/build/vst3sdk/pluginterfaces
+  make -f /Users/vlly/DSP/spotykach/vst/build/vst3sdk/pluginterfaces/CMakeScripts/ReRunCMake.make
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+		F68635DE9DB4E13DDC2551A1 /* Generate CMakeFiles/ALL_BUILD */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate CMakeFiles/ALL_BUILD";
+			outputPaths = (
+/Users/vlly/DSP/spotykach/vst/build/vst3sdk/pluginterfaces/CMakeFiles/ALL_BUILD			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e
+if test \"$CONFIGURATION\" = \"Debug\"; then :
+  cd /Users/vlly/DSP/spotykach/vst/build/vst3sdk/pluginterfaces
+  echo Build\\ all\\ projects
+fi
+if test \"$CONFIGURATION\" = \"Release\"; then :
+  cd /Users/vlly/DSP/spotykach/vst/build/vst3sdk/pluginterfaces
+  echo Build\\ all\\ projects
+fi
+";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		059563DA3DB842F9B0CDEE3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DAE99149BB044BCBFB5B19A /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/conststringtable.cpp */,
+				56D52F33B37A4AF1889ACD53 /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/coreiids.cpp */,
+				36FAA2543BC6414D958276BD /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/funknown.cpp */,
+				0F3599B6BCD541E78D36F66C /* /Users/vlly/DSP/vst3sdk/pluginterfaces/base/ustring.cpp */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5D6ABDFD17B5499CB28796AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5EB013D06C744C339719F05E /* ZERO_CHECK */;
+			targetProxy = 4D1A12CAF3354F1C9EC3C0A7 /* PBXContainerItemProxy */;
+		};
+		63FF5ADF61C04F9689280715 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0A1097AFBAD94B91BF75EA42 /* pluginterfaces */;
+			targetProxy = 59D77FE6F9FA4069956408B7 /* PBXContainerItemProxy */;
+		};
+		D82F7AD94C1948849C95D3C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5EB013D06C744C339719F05E /* ZERO_CHECK */;
+			targetProxy = F3426424EF76424499DCDFE6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		026BCD35B5B14CD181630A08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				CLANG_CXX_LIBRARY = "libc++";
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				SDKROOT = "";
+				SYMROOT = /Users/vlly/DSP/spotykach/vst/build/vst3sdk/pluginterfaces/build;
+			};
+			name = Debug;
+		};
+		0D31B14255F74854AD7634DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				CLANG_CXX_LIBRARY = "libc++";
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				SDKROOT = "";
+				SYMROOT = /Users/vlly/DSP/spotykach/vst/build/vst3sdk/pluginterfaces/build;
+			};
+			name = Release;
+		};
+		1FC0248943104D22BA2D71A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/vlly/DSP/spotykach/vst/build/vst3sdk/pluginterfaces;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		473CC5A9984C421F83FFB35C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/vlly/DSP/spotykach/vst/build/vst3sdk/pluginterfaces;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+		6A135AAF445F41289F3F9B77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/vlly/DSP/spotykach/vst/build/lib/Release;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","'SMTG_USE_STDATOMIC_H=1'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/vlly/DSP/vst3sdk,/Users/vlly/DSP/vst3sdk/pluginterfaces/..,"$(inherited)");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				ONLY_ACTIVE_ARCH = NO;
+				OSX_ARCHITECTURES = "x86_64;arm64;arm64e";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-DSMTG_RENAME_ASSERT=1' -Winconsistent-missing-override '-Werror=return-type' -ffast-math '-ffp-contract=fast' '-std=gnu++11' ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = pluginterfaces;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/vlly/DSP/spotykach/vst/build/vst3sdk/pluginterfaces;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		704378CE08BB4848AE9DA605 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/vlly/DSP/spotykach/vst/build/vst3sdk/pluginterfaces;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		B739B600A952437394CD6DDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = ("","$(inherited)");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/vlly/DSP/spotykach/vst/build/vst3sdk/pluginterfaces;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Release;
+		};
+		BAC19A5F1A7A4D49B71785DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/vlly/DSP/spotykach/vst/build/lib/Debug;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","'SMTG_USE_STDATOMIC_H=1'","$(inherited)");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/Users/vlly/DSP/vst3sdk,/Users/vlly/DSP/vst3sdk/pluginterfaces/..,"$(inherited)");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				ONLY_ACTIVE_ARCH = YES;
+				OSX_ARCHITECTURES = "x86_64;arm64;arm64e";
+				OTHER_CPLUSPLUSFLAGS = "   '-DSMTG_RENAME_ASSERT=1' -Winconsistent-missing-override '-Werror=return-type' -ffast-math '-ffp-contract=fast' '-std=gnu++11' ";
+				OTHER_LIBTOOLFLAGS = ("");
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = pluginterfaces;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/vlly/DSP/spotykach/vst/build/vst3sdk/pluginterfaces;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("$(inherited)");
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5EB668CAE58845E0985AC250 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				473CC5A9984C421F83FFB35C /* Debug */,
+				B739B600A952437394CD6DDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7245A7FF846A4A898C8896A6 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FC0248943104D22BA2D71A0 /* Debug */,
+				704378CE08BB4848AE9DA605 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8AE9D90D742F4E4286C8D138 /* Build configuration list for PBXProject "smtg_pluginterfaces" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				026BCD35B5B14CD181630A08 /* Debug */,
+				0D31B14255F74854AD7634DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		EE7F4185C6BB42299CDA8F08 /* Build configuration list for PBXNativeTarget "pluginterfaces" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAC19A5F1A7A4D49B71785DB /* Debug */,
+				6A135AAF445F41289F3F9B77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 982672ED08F14D0C80EE9730 /* Project object */;
+}
