@@ -6,14 +6,7 @@
 //
 
 #include <stdio.h>
-
 #include "Engine.h"
-#include "Envelope.h"
-#include "Source.h"
-#include "Generator.h"
-#include "Trigger.h"
-#include "SliceBuffer.h"
-#include "LFO.h"
 
 using namespace vlly;
 using namespace spotykach;
@@ -26,29 +19,29 @@ inline int gridStepCount(Grid grid) {
     }
 }
 
-Engine::Engine(): _tempo(0), _step(0.125), _grid(kGrid_Even)
+Engine::Engine(ITrigger& t, ISource& s, IEnvelope& e, IGenerator& g, ILFO& l):
+    _trigger{t},
+    _source{s},
+    _envelope{e},
+    _generator{g},
+    _jitterLFO{l},
+    _tempo{0},
+    _onsets{0}
 {
-    _envelope           = new Envelope();
-    _source             = new Source();
-    _generator          = new Generator(*_source, *_envelope);
-    _slicePositionLFO   = new LFO();
-    _trigger            = new Trigger(*_generator, *_slicePositionLFO);
-    
-    setSlicePosition(_raw.slicePosition);
-    setShift(_raw.shift);
-    setGrid(_raw.grid);
-    setStepPosition(_raw.stepGridPosition);
-    setSliceLength(_raw.sliceLength);
-    setRepeats(_raw.repeats);
-    setDirection(_raw.direction);
-    setRetrigger(_raw.retrigger);
-    setIsOn(_raw.on);
-    setDeclick(_raw.declick);
-    setRetriggerChance(_raw.retriggerChance);
-    setSlicePositionLFOAmplitude(_raw.posLFOAmp);
-    setSlicePositionLFORate(_raw.posLFORate);
-    
-    _trigger->prepareMeterPattern(_step, 0, 4, 4);
+    setSlicePosition(0.0);
+    setShift(0.0);
+    setGrid(1.0);
+    setStepPosition(4.0 / (CWordsCount - 1));
+    setSliceLength(0.5);
+    setRepeats(9);
+    setDirection(0);
+    setRetrigger(0);
+    setDeclick(false);
+    setRetriggerChance(1);
+    setJitterAmount(0);
+    setJitterRate(0.75);
+    setFrozen(false);
+    _trigger.prepareMeterPattern(_step, 0, 4, 4);
 }
 
 void Engine::setIsOn(bool on) {
@@ -131,48 +124,53 @@ void Engine::setSliceLength(double normVal) {
 }
 
 int Engine::pointsCount() {
-    return _trigger->pointsCount();
+    return _trigger.pointsCount();
 }
 
 void Engine::setRepeats(double normVal) {
     _raw.repeats = normVal;
-    _trigger->setRepeats(round(normVal * pointsCount()));
+    _trigger.setRepeats(round(normVal * pointsCount()));
 }
 
 void Engine::setRetrigger(double normVal) {
     _raw.retrigger = normVal;
-    _trigger->setRetrigger(round(normVal * 16));
+    _trigger.setRetrigger(round(normVal * 16));
 }
 
 void Engine::setRetriggerChance(bool value) {
     _raw.retriggerChance = value;
-    _trigger->setRetriggerChance(value);
+    _trigger.setRetriggerChance(value);
 }
 
-void Engine::setSlicePositionLFOAmplitude(double value) {
-    _raw.posLFOAmp = value;
-    _slicePositionLFO->setAmplitude(value);
+void Engine::setJitterAmount(double value) {
+    _raw.jitterAmount = value;
+    _jitterLFO.setAmplitude(value);
 }
 
-void Engine::setSlicePositionLFORate(double value) {
-    _raw.posLFORate = value;
-    _slicePositionLFO->setPeriod(1. - value);
+void Engine::setJitterRate(double value) {
+    _jitterLFO.setPeriod(1. - value);
 }
 
 void Engine::setDeclick(bool declick) {
     _raw.declick = declick;
-    _envelope->setDeclick(declick);
+    _envelope.setDeclick(declick);
 }
 
 void Engine::setDirection(double normVal) {
     _raw.direction = normVal;
     Direction direction = static_cast<Direction>(round(normVal * (kDirections_Count - 1)));
-    _generator->setDirection(direction);
+    _generator.setDirection(direction);
 }
 
 void Engine::setFrozen(bool frozen) {
     _raw.frozen = frozen;
-    _source->setFrozen(frozen);
+    _source.setFrozen(frozen);
+}
+
+void Engine::initialize(int sampleRate) {
+    _source.initialize(sampleRate);
+    _generator.initialize(sampleRate);
+    _isInitialized = true;
 }
 
 void Engine::preprocess(PlaybackParameters p) {
@@ -183,49 +181,46 @@ void Engine::preprocess(PlaybackParameters p) {
         reset(true);
     }
     
-    bool invalidatMeasure = p.tempo != _tempo;
-    _tempo = p.tempo;
+    if (p.tempo != _tempo) {
+        _tempo = p.tempo;
+        _trigger.measure(p.tempo, p.sampleRate, p.bufferSize);
+    }
     
     if (_invalidatePattern) {
         if (_grid == Grid::kGrid_CWord) {
-            _trigger->prepareCWordPattern(_onsets, _shift, p.numerator, p.denominator);
+            _trigger.prepareCWordPattern(_onsets, _shift, p.numerator, p.denominator);
         }
         else {
-            _trigger->prepareMeterPattern(_step, _shift, p.numerator, p.denominator);
+            _trigger.prepareMeterPattern(_step, _shift, p.numerator, p.denominator);
         }
-        invalidatMeasure = true;
         _invalidateSliceLength = true;
         _invalidatePattern = false;
     }
     
     if (_invalidateSlicePosition) {
-        _trigger->setSlicePosition(_start);
-        invalidatMeasure = true;
+        _trigger.setSlicePosition(_start);
         _invalidateSlicePosition = false;
     }
     
-    if (invalidatMeasure) {
-        _trigger->measure(p.tempo, p.sampleRate, p.bufferSize);
-    }
-    
     if (_invalidateSliceLength) {
-        _trigger->setSliceLength(_slice, *_envelope);
+        _trigger.setSliceLength(_slice, _envelope);
         _invalidateSliceLength = false;
     }
     
     if (_isPlaying) {
-        _trigger->schedule(p.currentBeat, isLaunch);
+        _trigger.schedule(p.currentBeat, isLaunch);
     }
 }
 
 void Engine::process(float in0, float in1, float* out0, float* out1, bool engaged) {
-    _trigger->next(_isOn && engaged);
-    _source->write(in0, in1);
-    _generator->generate(out0, out1);
+    _trigger.next(_isOn && engaged);
+    _source.write(in0, in1);
+    _generator.generate(out0, out1);
 }
 
 void Engine::reset(bool hard) {
-    _generator->reset(hard);
-    if (hard) _trigger->reset();
+    _source.reset();
+    _generator.reset();
+    if (hard) _trigger.reset();
     
 }

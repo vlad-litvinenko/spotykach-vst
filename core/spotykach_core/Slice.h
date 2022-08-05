@@ -18,11 +18,12 @@ public:
     Slice(ISource& inSource, ISliceBuffer& inBuffer, IEnvelope& inEnvelope);
     ~Slice();
     
+    
     bool isActive() { return _active; };
     bool isInactive() { return !_active; };
+    void initialize(int sampleRate);
     void activate(long offset, long length, int direction);
     void synthesize(float *out0, float* out1);
-    void sizeBuffer(unsigned long size);
     void setNeedsReset();
     
 private :

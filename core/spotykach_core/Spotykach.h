@@ -15,16 +15,16 @@
 namespace vlly {
 namespace spotykach {
 
-struct SpotykachRawParameters {
-    double vol[4]  = { 1.0, 1.0, 1.0, 1.0 };
-    double mix      = 1.0;
-    double mainVol  = 1.0;
-    int mutex       = 0;
-    bool cascade[4]  = { false, false, false, false };
-    bool ownBus[4]   = { false, false, false, false };
-};
+static const int kEnginesCount = UnitsCount;
 
-const int kEnginesCount = 4;
+struct SpotykachRawParameters {
+    double vol[kEnginesCount]   = { 1.0, 1.0, 1.0, 1.0 };
+    double mix                  = 1.0;
+    double mainVol              = 1.0;
+    int mutex                   = 0;
+    bool cascade[kEnginesCount] = { false, false, false, false };
+    bool ownBus[kEnginesCount]  = { false, false, false, false };
+};
 
 class Spotykach {
 public:
@@ -46,6 +46,8 @@ public:
     
     void sendToOwnBus(bool value, int index) { _raw.ownBus[index] = value; };
     
+    bool isInitialized() { return  _isInitialized; }
+    void initialize(int sampleRate);
     void preprocess(PlaybackParameters p);
     void process(float** inBuf, bool inMono, float** outBuf[kEnginesCount], bool outMono, int numFrames);
     
@@ -53,13 +55,15 @@ public:
     
     void resetCascadeOf(int index) {
         int nextIndex = index + 1;
-        if (_cascade[nextIndex]) engineAt(nextIndex).reset();
+        if (_cascade[nextIndex]) engineAt(nextIndex).reset(false);
     }
     
 private:
-    std::array<Engine*, kEnginesCount> _engines;
+    Engine* _engines[kEnginesCount];
     
     SpotykachRawParameters _raw;
+    
+    bool _isInitialized;
     
     double _vol[kEnginesCount];
     bool _cascade[kEnginesCount];
@@ -68,7 +72,6 @@ private:
     double _mainVol;
     Mutex _mutex;
 };
-
 }
 }
 

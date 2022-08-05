@@ -14,10 +14,10 @@
 
 class TestGenerator: public IGenerator {
 public:
-    MOCK_METHOD(void, adjustBuffers, (long), (override));
+    MOCK_METHOD(void, initialize, (int), (override));
     MOCK_METHOD(void, activateSlice, (long, long, long, bool), (override));
     MOCK_METHOD(void, generate, (float*, float*), (override));
-    MOCK_METHOD(void, reset, (bool), (override));
+    MOCK_METHOD(void, reset, (), (override));
     MOCK_METHOD(void, setDirection, (vlly::spotykach::Direction), (override));
 };
 

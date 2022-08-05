@@ -31,6 +31,6 @@
 #else
 #define stringFileDescription	"spotykach VST3"
 #endif
-#define stringCompanyName		"Quirky Sound Machines\0"
-#define stringLegalCopyright	"Copyright(c) 2022 Quirky Sound Machines."
+#define stringCompanyName		"Quirky Sound Machine\0"
+#define stringLegalCopyright	"Copyright(c) 2022 Quirky Sound Machine."
 #define stringLegalTrademarks	"VST is a trademark of Steinberg Media Technologies GmbH"

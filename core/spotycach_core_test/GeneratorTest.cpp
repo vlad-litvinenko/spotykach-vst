@@ -22,11 +22,14 @@ protected:
     
     void SetUp() override {
         _src = new Source();
+        _src->initialize(10);
         _src->reset();
         
         _env = new TestEnvelope();
         
         _gen = new Generator(*_src, *_env);
+        _gen->initialize(10);
+        _gen->reset();
     }
     
     void TearDown() override {
@@ -36,8 +39,8 @@ protected:
     }
     
     void doTestGenerateSlice() {
-        auto sliceLength = 20;
-        _gen->adjustBuffers(50);
+        auto sliceLength = 15;
+        
         _gen->activateSlice(0, 0, sliceLength, true);
         
         for (auto i = 0; i < 100; i++) {
@@ -61,10 +64,9 @@ protected:
         auto sliceLength = 8;
         auto offset = 5;
         _src->setFrozen(false);
-        _gen->adjustBuffers(20);
         float out0 = 0;
         float out1 = 0;
-        for (auto i = 0; i < 20; i++) {
+        for (auto i = 0; i < 30; i++) {
             _src->write(i, i);
             if (i == offset) {
                 _gen->activateSlice(0, offset, sliceLength, true);
@@ -86,8 +88,9 @@ protected:
     void doTestGenerateSliceOffsetFlow() {
         auto sliceLength = 8;
         auto offset = 5;
+        
         _src->setFrozen(false);
-        _gen->adjustBuffers(10);
+        
         float out0 = 0;
         float out1 = 0;
         for (auto i = 0; i < 30; i++) {

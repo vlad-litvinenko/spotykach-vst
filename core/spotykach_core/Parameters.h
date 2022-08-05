@@ -49,13 +49,13 @@ namespace spotykach {
         kP_Cascade          = 14,
         kP_RetriggerChance  = 15,
         kP_Freeze           = 16,
-        kP_PosLFOAmplitude  = 17,
-        kP_PosLFORate       = 18
+        kP_JitterAmount     = 17
     };
 
     enum GlobalParam {
         kP_Volume     = 73,
-        kP_Mutex      = 74
+        kP_Mutex      = 74,
+        kP_JitterRate = 75
     };
 
     enum class Mutex {

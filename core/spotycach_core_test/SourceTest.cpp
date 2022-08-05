@@ -17,8 +17,8 @@ protected:
     
     void SetUp() override {
         _src = new Source();
+        _src->initialize(1);
         _src->reset();
-        _src->size(10);
     }
     
     void TearDown() override {

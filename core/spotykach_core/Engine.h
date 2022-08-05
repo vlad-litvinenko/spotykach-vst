@@ -29,17 +29,17 @@ struct PlaybackParameters {
 };
 
 struct RawParameters {
-    double grid             = 0;
-    double shift            = 0;
-    double stepGridPosition = 6.0 / (EvenStepsCount - 1);
-    double slicePosition    = 0;
-    double sliceLength      = 0.5;
-    double direction        = 0;
-    double repeats          = 8;
-    double retrigger        = 0;
-    double retriggerChance  = 1.0;
-    double posLFOAmp        = 0.0;
-    double posLFORate       = 0.75;
+    double grid             = -1;
+    double shift            = -1;
+    double stepGridPosition = -1;
+    double slicePosition    = -1;
+    double sliceLength      = -1;
+    double direction        = -1;
+    double repeats          = -1;
+    double retrigger        = -1;
+    double retriggerChance  = -1;
+    double jitterRate       = -1;
+    double jitterAmount     = -1;
     bool on                 = false;
     bool declick            = false;
     bool frozen             = false;
@@ -47,15 +47,17 @@ struct RawParameters {
 
 class Engine {
 public:
-    Engine();
+    Engine(ITrigger&, ISource&, IEnvelope&, IGenerator&, ILFO&);
     ~Engine() {};
     
     RawParameters rawParameters() { return _raw; }
     
+    void initialize(int sampleRate);
+    
     bool isOn() { return _isOn; };
     void setIsOn(bool on);
     
-    bool isLocking() { return _trigger->locking(); };
+    bool isLocking() { return _trigger.locking(); };
     
     void setSlicePosition(double start);
     void setSliceLength(double slice);
@@ -67,13 +69,13 @@ public:
     int pointsCount();
     
     void setRepeats(double repeats);
-    int repeats() { return _trigger->repeats(); };
+    int repeats() { return _trigger.repeats(); };
     
     void setRetrigger(double retrigger);
     void setRetriggerChance(bool value);
     
-    void setSlicePositionLFOAmplitude(double value);
-    void setSlicePositionLFORate(double value);
+    void setJitterAmount(double value);
+    void setJitterRate(double value);
     
     void setDeclick(bool declick);
     
@@ -88,16 +90,17 @@ public:
     void reset(bool hard = true);
     
 private:
-    ITrigger* _trigger;
-    ISource* _source;
-    IEnvelope* _envelope;
-    IGenerator* _generator;
-    ILFO* _slicePositionLFO;
+    ITrigger& _trigger;
+    ISource& _source;
+    IEnvelope& _envelope;
+    IGenerator& _generator;
+    ILFO& _jitterLFO;
     
     RawParameters _raw;
     
     bool _isOn;
     bool _isPlaying;
+    bool _isInitialized;
     
     double _tempo;
     

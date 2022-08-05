@@ -17,7 +17,7 @@
                BlueprintIdentifier = "22F44F00D8EC4C2AB6FBE769"
                BuildableName = "validator"
                BlueprintName = "validator"
-               ReferencedContainer = "container:build/spotykach_vst.xcodeproj">
+               ReferencedContainer = "container:vst/spotykach_vst.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,7 +47,7 @@
             BlueprintIdentifier = "22F44F00D8EC4C2AB6FBE769"
             BuildableName = "validator"
             BlueprintName = "validator"
-            ReferencedContainer = "container:build/spotykach_vst.xcodeproj">
+            ReferencedContainer = "container:vst/spotykach_vst.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -67,16 +67,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "22F44F00D8EC4C2AB6FBE769"
-            BuildableName = "validator"
-            BlueprintName = "validator"
-            ReferencedContainer = "container:build/spotykach_vst.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -55,8 +55,8 @@ tresult PLUGIN_API SpotykachController::initialize (FUnknown* context)
         parameters.addParameter(new RangeParameter(STR("Retrigger"), u + kP_Retrigger, nullptr, 0, 16, 0, 16, f, u));
         parameters.addParameter(new RangeParameter(STR("Direction"), u + kP_Direction, nullptr, 0, 2, 0, 2, f, u));
         parameters.addParameter(new RangeParameter(STR("Level"), u + kP_Level, nullptr, 0, 1, 0.75, 0, f, u));
-        parameters.addParameter(new RangeParameter(STR("Position LFO Amp"), u + kP_PosLFOAmplitude, nullptr, 0, 1, 0, 0, f, u));
-        parameters.addParameter(new RangeParameter(STR("Position LFO Rate"), u + kP_PosLFORate, nullptr, 0, 1, 0.25, 0, f, u));
+        parameters.addParameter(new RangeParameter(STR("Position LFO Amp"), u + kP_JitterAmount, nullptr, 0, 1, 0, 0, f, u));
+        parameters.addParameter(new RangeParameter(STR("Position LFO Rate"), u + kP_JitterRate, nullptr, 0, 1, 0.25, 0, f, u));
         
         stepCount = 1;
         defaultValue = 0;
@@ -194,13 +194,13 @@ tresult PLUGIN_API SpotykachController::setComponentState (IBStream* state)
         if (!streamer.readDouble(retriggerChance)) return kResultFalse;
         setParamNormalized(u + kP_RetriggerChance, retriggerChance ? 0. : 1.);
         
-        double posLFOAmplitude = 0;
-        if (!streamer.readDouble(posLFOAmplitude)) return kResultFalse;
-        setParamNormalized(u + kP_PosLFOAmplitude, posLFOAmplitude);
+        double jitterAmount = 0;
+        if (!streamer.readDouble(jitterAmount)) return kResultFalse;
+        setParamNormalized(u + kP_JitterAmount, jitterAmount);
         
-        double posLFORate = 0;
-        if (!streamer.readDouble(posLFORate)) return kResultFalse;
-        setParamNormalized(u + kP_PosLFORate, posLFORate);
+        double jitterRate = 0;
+        if (!streamer.readDouble(jitterRate)) return kResultFalse;
+        setParamNormalized(u + kP_JitterRate, jitterRate);
         
         bool on = false;
         if (!streamer.readBool(on)) return kResultFalse;

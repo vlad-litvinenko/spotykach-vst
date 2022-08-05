@@ -129,10 +129,9 @@ tresult PLUGIN_API SpotykachProcessor::process (ProcessData& data)
         if (outParamChanges) writeParamteers(*outParamChanges);
     }
     
-    if (_bypass || !context || !isPlaying || inputs[0].silenceFlags != 0) {
+    if (_bypass || !context || !isPlaying) {
         void** out;
         for (int i = 0; i < data.numOutputs; i++) {
-            outputs[i].silenceFlags = inputs[0].silenceFlags;
             out = getChannelBuffersPointer(processSetup, outputs[i]);
             bool monoInput = numInChannels == 1;
             for (int32 i = 0; i < numOutChannels; i++) {
@@ -149,6 +148,23 @@ tresult PLUGIN_API SpotykachProcessor::process (ProcessData& data)
     }
     
     return doProcess(data);
+}
+
+tresult SpotykachProcessor::doProcess(ProcessData& data) {
+    auto inBuf = getChannelBuffers<SymbolicSampleSizes::kSample32>(data.inputs[0]);
+    bool inMono = data.inputs[0].numChannels == 1;
+    bool outMono = data.outputs[0].numChannels == 1;
+    
+    Sample32** bufs[4] = {
+        getChannelBuffers<SymbolicSampleSizes::kSample32>(data.outputs[0]),
+        getChannelBuffers<SymbolicSampleSizes::kSample32>(data.outputs[1]),
+        getChannelBuffers<SymbolicSampleSizes::kSample32>(data.outputs[2]),
+        getChannelBuffers<SymbolicSampleSizes::kSample32>(data.outputs[3])
+    };
+    
+    _core->process(inBuf, inMono, bufs, outMono, data.numSamples);
+    
+    return kResultOk;
 }
 
 void SpotykachProcessor::readParameters(IParameterChanges& ipc) {
@@ -225,18 +241,6 @@ void SpotykachProcessor::readParameters(IParameterChanges& ipc) {
                     e.setRetriggerChance(aChance > 0.5 ? 0. : 1.);
                     break;
                 }
-                case spotykach::kP_PosLFOAmplitude: {
-                    ParamValue aPosLFOAmp;
-                    get(aPosLFOAmp, queue, index);
-                    e.setSlicePositionLFOAmplitude(aPosLFOAmp);
-                    break;
-                }
-                case spotykach::kP_PosLFORate: {
-                    ParamValue aPosLFORate;
-                    get(aPosLFORate, queue, index);
-                    e.setSlicePositionLFORate(aPosLFORate);
-                    break;
-                }
                 case spotykach::kP_Declick: {
                     ParamValue aDeclick;
                     get(aDeclick, queue, index);
@@ -247,7 +251,7 @@ void SpotykachProcessor::readParameters(IParameterChanges& ipc) {
                 case spotykach::kP_Direction: {
                     ParamValue aDirection;
                     get(aDirection, queue, index);
-                    e.setDirection(aDirection);
+                    e.setDirection(aDirection * 0.5); //Currently only forward / reverse are supported
                     changes[engineIndex] = 1;
                     break;
                 }
@@ -262,6 +266,18 @@ void SpotykachProcessor::readParameters(IParameterChanges& ipc) {
                     get(anOn, queue, index);
                     e.setIsOn(anOn > 0.5);
                     changes[engineIndex] = 1;
+                    break;
+                }
+                case spotykach::kP_JitterAmount: {
+                    ParamValue aJitterAmount;
+                    get(aJitterAmount, queue, index);
+                    e.setJitterAmount(aJitterAmount);
+                    break;
+                }
+                case spotykach::kP_JitterRate: {
+                    ParamValue aJitterRate;
+                    get(aJitterRate, queue, index);
+                    e.setJitterRate(aJitterRate);
                     break;
                 }
                 case spotykach::kP_Freeze: {
@@ -310,7 +326,7 @@ void SpotykachProcessor::readParameters(IParameterChanges& ipc) {
                 }
             }
             
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < spotykach::kEnginesCount - 1; i++) {
                 if (changes[i] == 0) continue;
                 _core->resetCascadeOf(i);
             }
@@ -342,27 +358,11 @@ void SpotykachProcessor::writeParamteers(IParameterChanges& opc) {
     }
 }
 
-tresult SpotykachProcessor::doProcess(ProcessData& data) {
-    auto inBuf = getChannelBuffers<SymbolicSampleSizes::kSample32>(data.inputs[0]);
-    bool inMono = data.inputs[0].numChannels == 1;
-    bool outMono = data.outputs[0].numChannels == 1;
-    
-    Sample32** bufs[4] = {
-        getChannelBuffers<SymbolicSampleSizes::kSample32>(data.outputs[0]),
-        getChannelBuffers<SymbolicSampleSizes::kSample32>(data.outputs[1]),
-        getChannelBuffers<SymbolicSampleSizes::kSample32>(data.outputs[2]),
-        getChannelBuffers<SymbolicSampleSizes::kSample32>(data.outputs[3])
-    };
-    
-    _core->process(inBuf, inMono, bufs, outMono, data.numSamples);
-    
-    return kResultOk;
-}
-
 //------------------------------------------------------------------------
 tresult PLUGIN_API SpotykachProcessor::setupProcessing (Vst::ProcessSetup& newSetup)
 {
 	//--- called before any processing ----
+    _core->initialize(newSetup.sampleRate);
 	return AudioEffect::setupProcessing (newSetup);
 }
 
@@ -444,13 +444,13 @@ tresult PLUGIN_API SpotykachProcessor::setState (IBStream* state)
         e.setRetriggerChance(retriggerChance);
         
         
-        double positionLFOAmp = 0;
-        if (!streamer.readDouble(positionLFOAmp)) return kResultFalse;
-        e.setSlicePositionLFOAmplitude(positionLFOAmp);
+        double jitterAmount = 0;
+        if (!streamer.readDouble(jitterAmount)) return kResultFalse;
+        e.setJitterAmount(jitterAmount);
         
-        double positionLFORate = 0;
-        if (!streamer.readDouble(positionLFORate)) return kResultFalse;
-        e.setSlicePositionLFORate(positionLFORate);
+        double jitterRate = 0;
+        if (!streamer.readDouble(jitterRate)) return kResultFalse;
+        e.setJitterRate(jitterRate);
         
         bool on = false;
         if (!streamer.readBool(on)) return kResultFalse;
@@ -504,8 +504,8 @@ tresult PLUGIN_API SpotykachProcessor::getState (IBStream* state) {
         streamer.writeDouble(r.repeats);
         streamer.writeDouble(r.retrigger);
         streamer.writeDouble(r.retriggerChance);
-        streamer.writeDouble(r.posLFOAmp);
-        streamer.writeDouble(r.posLFORate);
+        streamer.writeDouble(r.jitterAmount);
+        streamer.writeDouble(r.jitterRate);
         streamer.writeBool(r.on);
         streamer.writeBool(r.declick);
         streamer.writeBool(r.frozen);

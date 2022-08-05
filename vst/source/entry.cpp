@@ -21,7 +21,7 @@ using namespace vlly;
 // GetPluginFactory function!
 //------------------------------------------------------------------------
 
-BEGIN_FACTORY_DEF ("Quirky Sound Machines",
+BEGIN_FACTORY_DEF ("Quirky Sound Machine",
 			       "thatvlad.com", 
 			       "mailto:thatvlad@icloud.com")
 

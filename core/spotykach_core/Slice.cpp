@@ -58,8 +58,8 @@ void Slice::synthesize(float *out0, float* out1) {
     next();
 }
 
-void Slice::sizeBuffer(unsigned long size) {
-    _buffer.size(size);
+void Slice::initialize(int sampleRate) {
+    _buffer.initialize(sampleRate);
 }
 
 void Slice::next() {

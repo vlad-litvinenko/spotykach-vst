@@ -14,10 +14,11 @@ class TestSource: public ISource {
 public:
     MOCK_METHOD(void, setFrozen, (bool), (override));
     MOCK_METHOD(bool, isFrozen, (), (override));
-    MOCK_METHOD(void, size, (unsigned long), (override));
-    MOCK_METHOD(void, write, (float, float), (override));
     MOCK_METHOD(unsigned long, readHead, (), (override));
+    MOCK_METHOD(void, initialize, (int), (override));
+    MOCK_METHOD(void, write, (float, float), (override));
     MOCK_METHOD(void, read, (float&, float&, unsigned long), (override));
+    MOCK_METHOD(bool, isFilled, (), (override));
     MOCK_METHOD(void, reset, (), (override));
 };
 

@@ -9,26 +9,23 @@
 #ifndef __Spotykach__Scheduler__
 #define __Spotykach__Scheduler__
 
-#include <vector>
 #include "IGenerator.h"
 #include "ITrigger.h"
 #include "ILFO.h"
 #include <random>
 
-static inline void adjustNextIndex(const std::vector<double>& points, int& nextIndex, double beat, bool isLaunch) {
+static inline void adjustNextIndex(double* points, uint32_t pointsCount, uint32_t& nextIndex, double beat, bool isLaunch) {
     if (isLaunch) {
         nextIndex = 0;
         return;
     }
-    
     int newNextIndex = 0;
-    double nextDiff = MAXFLOAT;
-    long pointsCount = points.size();
-    for (int j = 0; j < pointsCount; j++) {
-        auto point = points[j];
+    float nextDiff = INT32_MAX;
+    for (int i = 0; i < pointsCount; i++) {
+        auto point = points[i];
         if (!isLaunch && point >= beat && point - beat < nextDiff) {
             nextDiff = point - beat;
-            newNextIndex = j;
+            newNextIndex = i;
         }
     }
     nextIndex = newNextIndex;
@@ -38,8 +35,8 @@ class Trigger: public ITrigger {
 public:
     Trigger(IGenerator& inGenerator, ILFO& inSlicePositionLFO);
     
-    int pointsCount() override { return _pointsCount; };
-    int beatsPerPattern() override { return _beatsPerPattern; };
+    uint32_t pointsCount() override { return _pointsCount; };
+    uint32_t beatsPerPattern() override { return _beatsPerPattern; };
     void measure(double, double, int) override;
     void prepareMeterPattern(double, double, int, int) override;
     void prepareCWordPattern(int, double, int, int) override;
@@ -55,41 +52,41 @@ public:
     void setRetrigger(int) override;
     void setRetriggerChance(double) override;
     
-    int repeats() override { return _repeats; };
+    uint32_t repeats() override { return _repeats; };
     void setRepeats(int) override;
     
     bool locking() override { return _framesTillUnlock > 0; };
     
 private:
     IGenerator& _generator;
-    ILFO& _slicePositionLFO;
+    ILFO& _jitterLFO;
 
     double _slicePosition;
     double _step;
     bool _needsAdjustIndexes;
     
-    int _numerator;
-    int _denominator;
+    uint32_t _numerator;
+    uint32_t _denominator;
     
-    std::vector<double>* _triggerPoints;
+    std::array<double, 256> _triggerPoints;
     double _latestPoint;
-    int _pointsCount;
-    int _nextPointIndex;
-    int _beatsPerPattern;
+    uint32_t _pointsCount;
+    uint32_t _nextPointIndex;
+    uint32_t _beatsPerPattern;
 
     bool _scheduled;
     
-    int _repeats;
-    int _retrigger;
-    double _retriggerChance;
+    uint32_t _repeats;
+    uint32_t _retrigger;
+    float _retriggerChance;
     std::minstd_rand _retriggerDice;
     
-    long _slicePositionFrames;
-    long _framesPerSlice;
-    long _framesPerBeat;
-    long _framesTillTrigger;
-    long _framesTillUnlock;
-    long _currentFrame;
+    uint32_t _slicePositionFrames;
+    uint32_t _framesPerSlice;
+    uint32_t _framesPerBeat;
+    uint32_t _framesTillTrigger;
+    uint32_t _framesTillUnlock;
+    uint32_t _currentFrame;
 };
 
 #endif

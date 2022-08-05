@@ -37,20 +37,19 @@ protected:
         delete _gen;
         delete _src;
         delete _env;
+        delete _lfo;
     }
     
     void doTriggerTest(double shift, double step, double slicePos, int pointsCount, int maxRepeats = 0, int patterns = 1) {
         double framesPerMeasure { 88200 };
-        int buffer { 512 };
+        int bufferSize { 512 };
         int numerator = 4;
         _trig->reset();
         
         _trig->prepareMeterPattern(step, shift, numerator, 4);
+        _trig->measure(120, 44100, bufferSize);
         
         _trig->setSlicePosition(slicePos);
-        
-        EXPECT_CALL(*_gen, adjustBuffers);
-        _trig->measure(120, 44100, buffer);
         
         EXPECT_CALL(*_env, setFramesPerCrossfade);
         _trig->setSliceLength(0.5, *_env);
@@ -60,18 +59,20 @@ protected:
             _trig->setRepeats(maxRepeats);
             count = maxRepeats;
         }
+        
         long onset = 0;
         long pickupOffset = slicePos * framesPerMeasure;
         long framesPerSlice = step * framesPerMeasure;
+        EXPECT_CALL(*_lfo, amplitude).Times(AnyNumber()).WillRepeatedly(Return(0));
         EXPECT_CALL(*_gen, activateSlice(onset, pickupOffset, framesPerSlice, false)).Times(patterns * count);
         
         double currentBeat { 0 };
-        double beatIncrement = 4 * buffer / framesPerMeasure;
+        double beatIncrement = 4 * bufferSize / framesPerMeasure;
         bool isLaunch = true;
         do {
             _trig->schedule(currentBeat, isLaunch);
             isLaunch = false;
-            for (int i = 0; i < buffer; i++) {
+            for (int i = 0; i < bufferSize; i++) {
                 _trig->next(true);
             };
             currentBeat += beatIncrement;
@@ -79,60 +80,66 @@ protected:
     }
     
     void switchToTriplet8Playing() {
-        std::vector<double> p = { 0.000000, 0.166667, 0.333333, 0.500000, 0.666667, 0.833333, 1.000000, 1.166667, 1.333333, 1.500000, 1.666667, 1.833333, 2.000000, 2.166667, 2.333333, 2.500000, 2.666667, 2.833333, 3.000000, 3.166667, 3.333333, 3.500000, 3.666667, 3.833333 };
+        std::array<double, 256> p = { 0.000000, 0.166667, 0.333333, 0.500000, 0.666667, 0.833333, 1.000000, 1.166667, 1.333333, 1.500000, 1.666667, 1.833333, 2.000000, 2.166667, 2.333333, 2.500000, 2.666667, 2.833333, 3.000000, 3.166667, 3.333333, 3.500000, 3.666667, 3.833333 };
         double bt = 1.75;
-        int npi = 3;
-        adjustNextIndex(p, npi, bt, false);
+        uint32_t l = 24;
+        uint32_t npi = 3;
+        adjustNextIndex(p.data(), l, npi, bt, false);
         
         EXPECT_EQ(npi, 11);
     }
     
     void switchToStraight4() {
-        std::vector<double> p = { 0.000000, 1.000000, 2.000000, 3.000000 };
+        std::array<double, 256> p = { 0.000000, 1.000000, 2.000000, 3.000000 };
         double bt = 1.75;
-        int npi = 3;
-        adjustNextIndex(p, npi, bt, false);
+        uint32_t npi = 3;
+        uint32_t l = 4;
+        adjustNextIndex(p.data(), l, npi, bt, false);
         
         EXPECT_EQ(npi, 2);
     }
     
     void switchToStraight8Playing() {
-        std::vector<double> p = { 0.000000, 0.500000, 1.000000, 1.500000, 2.000000, 2.500000, 3.000000, 3.500000 };
+        std::array<double, 256> p = { 0.000000, 0.500000, 1.000000, 1.500000, 2.000000, 2.500000, 3.000000, 3.500000 };
         double bt = 1.3;
-        int npi = 2;
-        adjustNextIndex(p, npi, bt, false);
+        uint32_t npi = 2;
+        uint32_t l = 8;
+        adjustNextIndex(p.data(), l, npi, bt, false);
         
         EXPECT_EQ(npi, 3);
     }
     
     void switchToStraight8Reset() {
-        std::vector<double> p = { 0.000000, 0.500000, 1.000000, 1.500000, 2.000000, 2.500000, 3.000000, 3.500000 };
+        std::array<double, 256> p = { 0.000000, 0.500000, 1.000000, 1.500000, 2.000000, 2.500000, 3.000000, 3.500000 };
         double bt = 0;
-        int npi = 2;
-        adjustNextIndex(p, npi, bt, true);
+        uint32_t npi = 2;
+        uint32_t l = 8;
+        adjustNextIndex(p.data(), l, npi, bt, true);
         
         EXPECT_EQ(npi, 0);
     }
     
     void switchToPoint8Reset() {
-        std::vector<double> p = { 0.000000, 0.750000, 1.500000, 2.250000, 3.000000, 3.750000, 4.500000, 5.250000, 6.000000, 6.750000, 7.500000, 8.250000, 9.000000, 9.750000, 10.500000, 11.250000 };
+        std::array<double, 256> p = { 0.000000, 0.750000, 1.500000, 2.250000, 3.000000, 3.750000, 4.500000, 5.250000, 6.000000, 6.750000, 7.500000, 8.250000, 9.000000, 9.750000, 10.500000, 11.250000 };
         double bt = 0;
-        int npi = 0;
-        adjustNextIndex(p, npi, bt, true);
+        uint32_t npi = 0;
+        uint32_t l = 16;
+        adjustNextIndex(p.data(), l, npi, bt, true);
         
         EXPECT_EQ(npi, 0);
     }
     
     void switchToWhole() {
-        std::vector<double> p = { 0.000000 };
+        std::array<double, 256> p = { 0.000000 };
         double bt = 2.645720;
-        int npi = 3;
-        adjustNextIndex(p, npi, bt, false);
+        uint32_t npi = 3;
+        uint32_t l = 1;
+        adjustNextIndex(p.data(), l, npi, bt, false);
         
         EXPECT_EQ(npi, 0);
     }
 };
-//                                                      shf         stp         sta         pts     rps       pat
+////                                                      shf         stp         sta         pts     rps       pat
 TEST_F(TriggerTest, Straight1_Start0)   { doTriggerTest(0,          1.,         0,          1,      0,      2); }
 TEST_F(TriggerTest, Straight05_Start0)  { doTriggerTest(0,          1./2.,      0,          2,      0,      2); }
 TEST_F(TriggerTest, Straight8_Start0)   { doTriggerTest(0,          1./8.,      0,          8,      0,      2); }
