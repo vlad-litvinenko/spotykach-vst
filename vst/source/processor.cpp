@@ -13,6 +13,7 @@
 #include "vstparams.h"
 #include <cmath>
 #include <algorithm>
+#include <bitset>
 
 using namespace Steinberg;
 using namespace Vst;
@@ -177,7 +178,7 @@ void SpotykachProcessor::readParameters(IParameterChanges& ipc) {
         }
     };
     
-    int changes[] = { 0, 0, 0, 0 };
+    std::bitset<spotykach::kEnginesCount> changes { 0b0000 };
     int32 numParamsChanged = ipc.getParameterCount();
     for (int32 index = 0; index < numParamsChanged; index++) {
         if (IParamValueQueue* queue = ipc.getParameterData(index)) {
@@ -190,49 +191,49 @@ void SpotykachProcessor::readParameters(IParameterChanges& ipc) {
                     ParamValue aShift;
                     get(aShift, queue, index);
                     e.setShift(aShift);
-                    changes[engineIndex] = 1;
+                    changes.set(engineIndex);
                     break;
                 }
                 case spotykach::kP_Slice_Step: {
                     ParamValue aStepPosition;
                     get(aStepPosition, queue, index);
                     e.setStepPosition(aStepPosition);
-                    changes[engineIndex] = 1;
+                    changes.set(engineIndex);
                     break;
                 }
                 case spotykach::kP_Grid: {
                     ParamValue aGrid;
                     get(aGrid, queue, index);
                     e.setGrid(aGrid);
-                    changes[engineIndex] = 1;
+                    changes.set(engineIndex);
                     break;
                 }
                 case spotykach::kP_Slice_Start: {
                     ParamValue aStart;
                     get(aStart, queue, index);
                     e.setSlicePosition(aStart);
-                    changes[engineIndex] = 1;
+                    changes.set(engineIndex);
                     break;
                 }
                 case spotykach::kP_Slice_Length: {
                     ParamValue aSlice;
                     get(aSlice, queue, index);
                     e.setSliceLength(aSlice);
-                    changes[engineIndex] = 1;
+                    changes.set(engineIndex);
                     break;
                 }
                 case spotykach::kP_Repeats: {
                     ParamValue aRepeats;
                     get(aRepeats, queue, index);
                     e.setRepeats(aRepeats);
-                    changes[engineIndex] = 1;
+                    changes.set(engineIndex);
                     break;
                 }
                 case spotykach::kP_Retrigger: {
                     ParamValue aRetrigger;
                     get(aRetrigger, queue, index);
                     e.setRetrigger(aRetrigger);
-                    changes[engineIndex] = 1;
+                    changes.set(engineIndex);
                     break;
                 }
                 case spotykach::kP_RetriggerChance: {
@@ -245,14 +246,14 @@ void SpotykachProcessor::readParameters(IParameterChanges& ipc) {
                     ParamValue aDeclick;
                     get(aDeclick, queue, index);
                     e.setDeclick(aDeclick > 0.5);
-                    changes[engineIndex] = 1;
+                    changes.set(engineIndex);
                     break;
                 }
                 case spotykach::kP_Direction: {
                     ParamValue aDirection;
                     get(aDirection, queue, index);
                     e.setDirection(aDirection * 0.5); //Currently only forward / reverse are supported
-                    changes[engineIndex] = 1;
+                    changes.set(engineIndex);
                     break;
                 }
                 case spotykach::kP_Level: {
@@ -265,7 +266,7 @@ void SpotykachProcessor::readParameters(IParameterChanges& ipc) {
                     ParamValue anOn;
                     get(anOn, queue, index);
                     e.setIsOn(anOn > 0.5);
-                    changes[engineIndex] = 1;
+                    changes.set(engineIndex);
                     break;
                 }
                 case spotykach::kP_JitterAmount: {
@@ -284,7 +285,7 @@ void SpotykachProcessor::readParameters(IParameterChanges& ipc) {
                     ParamValue aFreeze;
                     get(aFreeze, queue, index);
                     e.setFrozen(aFreeze > 0.5);
-                    changes[engineIndex] = 1;
+                    changes.set(engineIndex);
                     break;
                 }
                 case spotykach::kP_OwnBus: {
@@ -297,7 +298,7 @@ void SpotykachProcessor::readParameters(IParameterChanges& ipc) {
                     ParamValue aCascade;
                     get(aCascade, queue, index);
                     _core->setCascade(aCascade > 0.5, engineIndex);
-                    changes[engineIndex] = 1;
+                    changes.set(engineIndex);
                     break;
                 }
                 case spotykach::kP_Mix: {
@@ -327,7 +328,7 @@ void SpotykachProcessor::readParameters(IParameterChanges& ipc) {
             }
             
             for (int i = 0; i < spotykach::kEnginesCount - 1; i++) {
-                if (changes[i] == 0) continue;
+                if (!changes[i]) continue;
                 _core->resetCascadeOf(i);
             }
         }

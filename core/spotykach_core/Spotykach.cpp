@@ -11,6 +11,7 @@
 #include "Generator.h"
 #include "Trigger.h"
 #include "LFO.h"
+#include <bitset>
 
 using namespace vlly;
 using namespace spotykach;
@@ -96,7 +97,7 @@ void Spotykach::process(float** inBuf, bool inMono, float** outBuf[kEnginesCount
         float in1 = 0;
         float out0 = 0;
         float out1 = 0;
-        char locking = 0;
+        std::bitset<kEnginesCount> locking { 0b0000 };
         bool previousLocking = false;
         bool engaged = true;
         for (int i = 0; i < kEnginesCount; i++) {
@@ -104,20 +105,20 @@ void Spotykach::process(float** inBuf, bool inMono, float** outBuf[kEnginesCount
             in0 = _cascade[i] ? cascadeSum0 : in0Ext;
             in1 = _cascade[i] ? cascadeSum1 : in0Ext;
             
-            previousLocking = i > 0 && (locking >> (i - 1) & 1);
+            previousLocking = i > 0 && locking[i - 1];
             switch (_mutex) {
                 case Mutex::off: { engaged = true; break; }
                 case Mutex::cascade: { engaged = !previousLocking; break; }
-                case Mutex::any: { engaged = (locking == 0); break; }
+                case Mutex::any: { engaged = (locking.none()); break; }
             }
             
             e.process(in0, in1, &out0, &out1, engaged);
             
-            if (e.isLocking() || (_mutex == Mutex::cascade && previousLocking)) {
-                locking |= 1 << i;
+            if (e.isLocking() || ( _mutex == Mutex::cascade && previousLocking) ) {
+                locking.set(i);
             }
             else {
-                locking &= ~(1 << i);
+                locking.reset(i);
             }
             
             cascadeSum0 += out0;
