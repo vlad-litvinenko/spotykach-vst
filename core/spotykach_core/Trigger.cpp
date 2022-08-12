@@ -150,7 +150,8 @@ void Trigger::setSliceLength(double value, IEnvelope& envelope) {
     uint32_t framesPerMeasure = _framesPerBeat * _denominator;
     uint32_t framesPerStep { static_cast<uint32_t>(_step * framesPerMeasure) };
     _framesPerSlice = framesPerMeasure * value * 2 * _step;
-    envelope.setFramesPerCrossfade(std::max(_framesPerSlice - framesPerStep, 0u));
+    uint32_t framesPerCrossfade = _framesPerSlice > framesPerStep ? _framesPerSlice - framesPerStep : 0u;
+    envelope.setFramesPerCrossfade(framesPerCrossfade);
 }
 
 void Trigger::schedule(double currentBeat, bool isLaunch) {
