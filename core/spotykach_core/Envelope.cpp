@@ -39,7 +39,7 @@ void Envelope::measure() {
     }
     else {
         _attackLength = _decayLength = _declick ? 512 : 0;
-    }\
+    }
 }
 
 float Envelope::attackAttenuation(long currentFrame) {
