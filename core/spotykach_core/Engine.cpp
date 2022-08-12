@@ -28,6 +28,7 @@ Engine::Engine(ITrigger& t, ISource& s, IEnvelope& e, IGenerator& g, ILFO& l):
     _tempo{0},
     _onsets{0}
 {
+    setIsOn(false);
     setSlicePosition(0.0);
     setShift(0.0);
     setGrid(1.0);
