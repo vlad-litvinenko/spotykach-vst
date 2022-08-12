@@ -11,12 +11,11 @@
 #include "Generator.h"
 #include "Trigger.h"
 #include "LFO.h"
-#include <bitset>
 
 using namespace vlly;
 using namespace spotykach;
 
-Spotykach::Spotykach(): _isInitialized(false) {
+Spotykach::Spotykach() {
     auto l = new LFO();
     for (int i = 0; i < enginesCount(); i++) {
         auto e = new Envelope();
@@ -68,8 +67,13 @@ void Spotykach::setVolume(double value, int index) {
 
 void Spotykach::setCascade(bool value, int index) {
     _raw.cascade[index] = value;
-    _cascade[index] = value;
-    if (!value) return;
+    if (value) {
+        _cascade.set(index);
+    }
+    else {
+        _cascade.reset(index);
+        return;
+    }
 
     Engine& e = engineAt(index);
     e.setFrozen(false);
@@ -77,8 +81,7 @@ void Spotykach::setCascade(bool value, int index) {
 }
 
 void Spotykach::initialize(int sampleRate) {
-    for (auto* e: _engines) e->initialize(sampleRate);
-    _isInitialized = true;
+    for (auto* e: _engines) e->initialize(sampleRate); 
 }
 
 void Spotykach::preprocess(PlaybackParameters p) {
@@ -102,10 +105,10 @@ void Spotykach::process(float** inBuf, bool inMono, float** outBuf[kEnginesCount
         bool engaged = true;
         for (int i = 0; i < kEnginesCount; i++) {
             Engine& e = engineAt(i);
-            in0 = _cascade[i] ? cascadeSum0 : in0Ext;
-            in1 = _cascade[i] ? cascadeSum1 : in0Ext;
+            in0 = _cascade.test(i) ? cascadeSum0 : in0Ext;
+            in1 = _cascade.test(i) ? cascadeSum1 : in0Ext;
             
-            previousLocking = i > 0 && locking[i - 1];
+            previousLocking = i > 0 && locking.test(i - 1);
             switch (_mutex) {
                 case Mutex::off: { engaged = true; break; }
                 case Mutex::cascade: { engaged = !previousLocking; break; }

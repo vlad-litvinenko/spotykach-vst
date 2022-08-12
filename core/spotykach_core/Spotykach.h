@@ -11,6 +11,7 @@
 #include "Engine.h"
 #include "Parameters.h"
 #include <array>
+#include <bitset>
 
 namespace vlly {
 namespace spotykach {
@@ -46,7 +47,6 @@ public:
     
     void sendToOwnBus(bool value, int index) { _raw.ownBus[index] = value; };
     
-    bool isInitialized() { return  _isInitialized; }
     void initialize(int sampleRate);
     void preprocess(PlaybackParameters p);
     void process(float** inBuf, bool inMono, float** outBuf[kEnginesCount], bool outMono, int numFrames);
@@ -63,10 +63,8 @@ private:
     
     SpotykachRawParameters _raw;
     
-    bool _isInitialized;
-    
     double _vol[kEnginesCount];
-    bool _cascade[kEnginesCount];
+    std::bitset<kEnginesCount> _cascade;
     
     double _mix;
     double _mainVol;
