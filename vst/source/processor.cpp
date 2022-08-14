@@ -252,7 +252,7 @@ void SpotykachProcessor::readParameters(IParameterChanges& ipc) {
                 case spotykach::kP_Direction: {
                     ParamValue aDirection;
                     get(aDirection, queue, index);
-                    e.setDirection(aDirection * 0.5); //Currently only forward / reverse are supported
+                    e.setDirection(aDirection);
                     changes.set(engineIndex);
                     break;
                 }
