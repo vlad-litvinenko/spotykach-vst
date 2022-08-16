@@ -2,7 +2,7 @@
 quirky sound machine
 VST3 Mac
 
-https://www.instagram.com/p/CfbAkIvvhju/
+https://youtu.be/ff3yD212o0k
 
 ### Build VST
 
