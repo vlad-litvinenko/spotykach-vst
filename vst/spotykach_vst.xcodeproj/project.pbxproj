@@ -4120,7 +4120,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(SOURCE_ROOT)/../core/build/$(CONFIGURATION)/usr/local/include",
+					"$(SOURCE_ROOT)/core/build/$(CONFIGURATION)/usr/local/include",
 					$HOME/DSP/vst3sdk/vstgui4,
 					$HOME/DSP/vst3sdk/base/..,
 					$HOME/DSP/vst3sdk/public.sdk/..,
