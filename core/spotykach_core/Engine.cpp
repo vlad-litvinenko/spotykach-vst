@@ -20,13 +20,14 @@ inline int gridStepCount(Grid grid) {
 }
 
 Engine::Engine(ITrigger& t, ISource& s, IEnvelope& e, IGenerator& g, ILFO& l):
-    _trigger{t},
-    _source{s},
-    _envelope{e},
-    _generator{g},
-    _jitterLFO{l},
-    _tempo{0},
-    _onsets{0}
+    _trigger { t },
+    _source { s },
+    _envelope { e },
+    _generator { g },
+    _jitterLFO { l },
+    _step { 0.0625 },
+    _tempo { 0 },
+    _onsets { 0 }
 {
     setIsOn(false);
     setSlicePosition(0.0);
@@ -54,7 +55,7 @@ void Engine::setShift(double normVal) {
     _raw.shift = normVal;
     double shiftValue = normVal * 15 / 16;
     if (shiftValue != _shift) {
-        _shift = shiftValue;
+        _shift = shiftValue; 
         _invalidatePattern = true;
     }
 }
