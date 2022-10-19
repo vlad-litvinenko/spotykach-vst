@@ -7,7 +7,4 @@
    <FileRef
       location = "group:vst/spotykach_vst.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:au/spotykach_au.xcodeproj">
-   </FileRef>
 </Workspace>
