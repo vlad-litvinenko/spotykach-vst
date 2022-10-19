@@ -12,6 +12,7 @@
 #include "Parameters.h"
 #include <array>
 #include <bitset>
+#include <vector>
 
 namespace vlly {
 namespace spotykach {
@@ -59,7 +60,7 @@ public:
     }
     
 private:
-    Engine* _engines[kEnginesCount];
+    std::array<std::shared_ptr<Engine>, kEnginesCount> _engines;
     
     SpotykachRawParameters _raw;
     
@@ -69,6 +70,8 @@ private:
     double _mix;
     double _mainVol;
     Mutex _mutex;
+    
+    std::vector<std::shared_ptr<void>> _releasePool;
 };
 }
 }

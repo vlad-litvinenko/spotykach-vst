@@ -15,6 +15,9 @@
 #include "IEnvelope.h"
 #include "Slice.h"
 #include "Parameters.h"
+#include "SliceBuffer.h"
+#include <array>
+#include <memory>
 
 static const int kSlicesCount = 2;
 
@@ -32,7 +35,8 @@ public:
 private:
     ISource& _source;
     IEnvelope& _envelope;
-    Slice* _slices[kSlicesCount];
+    std::array<std::shared_ptr<Slice>, kSlicesCount> _slices;
+    std::array<SliceBuffer, kSlicesCount> _buffers;
     
     long _onset;
     long _offset;
